@@ -1,6 +1,23 @@
-# SETemplate
+# Brain Games
 
-A template repo for Software Engineering projects at NYU Tandon.
+## Project Goal
+
+Assisting students in developing and strengthing their cognitive or linguistic abilities through mini "brain" games that focus on cognitive and/or linguistic skills.
+
+These games are split into categories that focus on specifics skills, such as:
+
+* memory - enhances a persons ability to remember as well increasing their ability focus
+** i.e matching of cards
+* languages - enhances / examines  your fluency in English vocabulary
+** i.e. word permutation game  
+* reaction time / perception - enhances the users visual to muscle reflexes and trains the users sensory sharpness
+** i.e spot the difference between two present images
+* numeracy - trains the users algebraic skills
+** i.e mathematical operator game
+* reasoning - enhances the users ability to notice patterns / relationships between objects
+** i.e tangrams
+
+
 
 In order to build production, in the top level directory, run:
 
@@ -11,13 +28,13 @@ In order to build production, in the top level directory, run:
 
 The requirements for a design project include:
 
-1. Everything under source code control
+1. Everything under source code control.
 1. Documentation integrated with code.
 1. Project build automated.
 1. Automated testing in place.
 1. Automated code checking in place.
 1. Test code coverage measured.
-1. Automated deployment to production
+1. Automated deployment to production.
 
 ## Design
 
