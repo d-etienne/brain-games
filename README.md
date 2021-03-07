@@ -1,6 +1,6 @@
 # Brain Games
 
-## Project Goal
+## Project Goal & Description
 
 Assisting students in developing and strengthing their cognitive or linguistic abilities through mini "brain" games that focus on cognitive and/or linguistic skills.
 
