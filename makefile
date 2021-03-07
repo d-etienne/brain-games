@@ -4,7 +4,7 @@ FORCE:
 
 tests: FORCE
 	$(PYLINT) *.py
-	nosetests --exe --with-coverage --verbose --cover-package=SETemplate
+	nosetests --exe --with-coverage --verbose --cover-package=brain-games
 
 prod: tests
 	git commit -a
