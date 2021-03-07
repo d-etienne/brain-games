@@ -4,18 +4,13 @@
 
 Assisting students in developing and strengthing their cognitive or linguistic abilities through mini "brain" games that focus on cognitive and/or linguistic skills.
 
-These games are split into categories that focus on specifics skills, such as:
+These games are split into categories that focus on specific skills, such as:
 
-* memory - enhances a persons ability to remember as well increasing their ability focus
-** i.e matching of cards
-* languages - enhances / examines  your fluency in English vocabulary
-** i.e. word permutation game  
-* reaction time / perception - enhances the users visual to muscle reflexes and trains the users sensory sharpness
-** i.e spot the difference between two present images
-* numeracy - trains the users algebraic skills
-** i.e mathematical operator game
-* reasoning - enhances the users ability to notice patterns / relationships between objects
-** i.e tangrams
+* memory - enhances a persons ability to remember as well increasing their ability focus (i.e matching of cards)
+* languages - enhances / examines  your fluency in English vocabulary (i.e. word permutation game)
+* reaction time / perception - enhances the users visual to muscle reflexes and trains the users sensory sharpness (i.e spot the difference between two present images)
+* numeracy - trains the users algebraic skills (i.e mathematical operator game)
+* reasoning - enhances the users ability to notice patterns / relationships between objects (i.e tangrams)
 
 
 
