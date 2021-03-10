@@ -54,7 +54,7 @@ The requirements for the Game API server are:
         - Level is based on the total amount of points earned
         - Each level increment requires a different amount of points
         - Level names: Novice, [...], Intermediate, [...], Master
-        - Level names account for a certain domain of levels.
+        - Level names account for a certain domain of levels
 
     - Overall game badges
         - Played a certain amount of mini-games within a category
