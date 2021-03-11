@@ -20,7 +20,7 @@ The mini games are classified according to cognitive skill:
     - Fast Math: the player is presented with a series of two-operand ( + , - , * , / ) math problems. A new question is presented after the previous question has been answered. They player must answer as many problems as they can within a certain allotment of time.
 
 1. **Reasoning**: enhances the user's ability to recognize patterns and identify relationships between objects.
-    - Tangrams: The player is provided with a number of shapes and an outline. The player must orient the shapes correctly within the outline. To properly solve the puzzle, there must be no shapes that overlap or go outside of the outline. There also cannot be any empty spaces inside of the outline.
+    - Tangrams: the player is provided with a number of shapes and an outline. The player must orient the shapes correctly within the outline. To properly solve the puzzle, there must be no shapes that overlap or go outside of the outline. There also cannot be any empty spaces inside of the outline.
 
 ## Requirements
 
