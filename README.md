@@ -1,5 +1,9 @@
 # Brain Games
 
+In order to build production, in the top level directory, run:
+
+`make prod`
+
 ## Project Goal & Description
 
 Goal: to assist students with developing and strengthing their cognitive abilities through playing mini-games that challenge and improve various cognitive skills.
