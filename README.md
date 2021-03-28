@@ -6,7 +6,7 @@ In order to build production, in the top level directory, run:
 
 To make all proper installations, run:
 
-'make dev_env'
+`make dev_env`
 
 ## Project Goal & Description
 
