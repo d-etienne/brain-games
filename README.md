@@ -4,6 +4,10 @@ In order to build production, in the top level directory, run:
 
 `make prod`
 
+To make all proper installations, run:
+
+'make dev_env'
+
 ## Project Goal & Description
 
 Goal: to assist students with developing and strengthing their cognitive abilities through playing mini-games that challenge and improve various cognitive skills.
@@ -31,6 +35,8 @@ The mini games are classified according to cognitive skill:
 The requirements for the Game API server are:
 
 1. The user can make a new account.
+
+1. The user can delete their account.
 
 1. The user can select a game category.
 
