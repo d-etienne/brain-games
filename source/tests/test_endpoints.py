@@ -7,7 +7,7 @@ from unittest import TestCase
 from flask_restx import Resource
 
 from source.endpoints import HelloWorld, HELLO, AVAILABLE, Endpoints
-from source.endpoints import Games
+from source.endpoints import Games, UserLogin
 
 
 class TestEndpoints(TestCase):
@@ -36,3 +36,12 @@ class TestEndpoints(TestCase):
         self.assertIsInstance(ret, dict)
         # we expect more than one game type!
         self.assertGreater(len(ret), 1)
+
+    def test_user_login(self):
+        """
+        Test "user login" endpoint.
+        """
+        login = UserLogin(Resource)
+        ret = login.post()
+        self.assertIn("Login Sucessful", ret)
+

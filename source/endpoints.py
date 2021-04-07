@@ -95,3 +95,13 @@ class CreateGame(Resource):
         This method returns all games.
         """
         return "Game created."
+
+
+@api.route('/user/login')
+class UserLogin(Resource):
+    """
+    This class allows the user to login into the
+    game.
+    """
+    def post(self):
+        return "Login Sucessful"
