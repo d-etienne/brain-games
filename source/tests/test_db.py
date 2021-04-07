@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from .db import fetch_games
+from source.db import fetch_games
 
 
 class DBTestCase(TestCase):
