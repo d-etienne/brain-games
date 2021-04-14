@@ -43,9 +43,17 @@ public class memorygame : MonoBehaviour
             {
                 if (hit.collider.CompareTag("Square"))
                 {
-                    Debug.Log("bingo!");
+                    StartCoroutine(userClick(hit));
                 }
             }
         }
     }
+
+    IEnumerator userClick(RaycastHit2D hit)
+    {
+        hit.collider.gameObject.GetComponent<Renderer>().material.color = Color.red;
+        yield return new WaitForSeconds(0.2f);
+        hit.collider.gameObject.GetComponent<Renderer>().material.color = Color.white;
+    }
+
 }
