@@ -7,7 +7,7 @@ public class memorygame : MonoBehaviour
 {
 
     //int iter = 0;
-    int turn = 0;
+    int turn = 1;
     double delta = 0;
     int[][] levels = new int[50][];
     int level = 1;
