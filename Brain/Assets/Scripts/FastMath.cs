@@ -9,40 +9,40 @@ public class FastMath : MonoBehaviour
     {
         string question;
 
-        int addOrSubtract()
+        int questionGenerator()
         {
-            int operand1 = Mathf.FloorToInt(Random.value * 100);
-            int operand2 = Mathf.FloorToInt(Random.value * 100);
-            int addOrSub = Mathf.FloorToInt(Random.value * 2);
+            int operand1, operand2;
+            int rand_operator = Mathf.FloorToInt(Random.value * 4);
 
-            if (addOrSub == 0)
+            if (rand_operator == 0)
             {
-                question = operand1 + "-" + operand2 + " = ? ";
-                return (operand1 - operand2);
-            }
-            else
-            {
+                operand1 = Mathf.FloorToInt(Random.value * 100);
+                operand2 = Mathf.FloorToInt(Random.value * 100);
                 question = operand1 + "+" + operand2 + " = ? ";
                 return (operand1 + operand2);
             }
-        }
-
-        int multiplyOrDivide()
-        {
-            int operand1 = Mathf.FloorToInt(Random.value * 50);
-            int operand2 = Random.Range(2, 10);
-            int mulOrDiv = Mathf.FloorToInt(Random.value * 2);
-
-            if (mulOrDiv == 0)
+            else if (rand_operator == 1)
             {
+                operand1 = Mathf.FloorToInt(Random.value * 100);
+                operand2 = Mathf.FloorToInt(Random.value * 100);
+                question = operand1 + "-" + operand2 + " = ? ";
+                return (operand1 - operand2);
+            }
+            else if (rand_operator == 2)
+            {
+                operand1 = Mathf.FloorToInt(Random.value * 50);
+                operand2 = Random.Range(2, 10);
                 question = operand1 + "*" + operand2 + " = ? ";
                 return (operand1 * operand2);
             }
-            else
+            else if (rand_operator == 3)
             {
+                operand1 = Mathf.FloorToInt(Random.value * 50);
+                operand2 = Random.Range(2, 10);
                 question = operand1 + "/" + operand2 + " = ? ";
                 return (operand1 / operand2);
             }
+          return 0;
         }
 
         //this list contains the 3 different answer for the user.
@@ -78,69 +78,6 @@ public class FastMath : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        string question;
 
-        int addOrSubtract()
-        {
-            int operand1 = Mathf.FloorToInt(Random.value * 100);
-            int operand2 = Mathf.FloorToInt(Random.value * 100);
-            int addOrSub = Mathf.FloorToInt(Random.value * 2);
-
-            if (addOrSub == 0)
-            {
-                question = operand1 + "-" + operand2 + " = ? ";
-                return (operand1 - operand2);
-            }
-            else
-            {
-                question = operand1 + "+" + operand2 + " = ? ";
-                return (operand1 + operand2);
-            }
-        }
-
-        int multiplyOrDivide()
-        {
-            int operand1 = Mathf.FloorToInt(Random.value * 50);
-            int operand2 = Random.Range(2, 10);
-            int mulOrDiv = Mathf.FloorToInt(Random.value * 2);
-
-            if (mulOrDiv == 0)
-            {
-                question = operand1 + "*" + operand2 + " = ? ";
-                return (operand1 * operand2);
-            }
-            else
-            {
-                question = operand1 + "/" + operand2 + " = ? ";
-                return (operand1 / operand2);
-            }
-        }
-
-        List<int> answerChoices = new List<int>();
-        void randomAnswerGenerator(int answer)
-        {
-            int correctAnswerIndex = Mathf.FloorToInt(Random.value * 3);
-            for (int i = 0; i < 3; i++)
-            {
-                if (i == correctAnswerIndex)
-                {
-                    answerChoices.Add(answer);
-                }
-                else
-                {
-                    int wrongAnswer = -1;
-                    int randOpt = Mathf.FloorToInt(Random.value * 2);
-                    int randBase = Mathf.FloorToInt(Random.value * 5) + 1;
-                    if (randOpt == 0){
-                        wrongAnswer = answer + randBase;
-                    }
-                    else
-                    {
-                        wrongAnswer = answer - randBase;
-                    }
-                    answerChoices.Add(wrongAnswer);
-                }
-            }
-        }
     }
 }
