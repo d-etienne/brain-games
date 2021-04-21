@@ -111,6 +111,10 @@ public class FirebaseManager : MonoBehaviour
             Debug.LogFormat("User signed in successfully: {0} ({1})", User.DisplayName, User.Email);
             warningLoginText.text = " ";
             confirmLoginText.text = "logged in";
+
+            yield return new WaitForSeconds(2);
+            SceneManager.instance.UserDataScreen();
+            confirmLoginText.text = "";
         }
     }
 

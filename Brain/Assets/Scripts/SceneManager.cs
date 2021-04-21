@@ -9,6 +9,7 @@ public class SceneManager : MonoBehaviour
 
     [SerializeField] public GameObject sign_up;
     [SerializeField] public GameObject register;
+    [SerializeField] public GameObject userData;
 
     private void Awake()
     {
@@ -33,5 +34,12 @@ public class SceneManager : MonoBehaviour
     {
         sign_up.SetActive(true);
         register.SetActive(false);
+    }
+
+    public void UserDataScreen() // this is for the back button in register screen
+    {
+        sign_up.SetActive(false);
+        register.SetActive(false);
+        userData.SetActive(true);
     }
 }
