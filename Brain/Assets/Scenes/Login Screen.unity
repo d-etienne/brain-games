@@ -1312,7 +1312,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 271951230}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 493382076}
+        m_MethodName: SavaDataButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &271951230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2096,7 +2107,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 393774600}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 493382076}
+        m_MethodName: SignOutButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &393774600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2444,6 +2466,12 @@ MonoBehaviour:
   passwordRegisterField: {fileID: 1632168316}
   passwordRegisterVerifyField: {fileID: 2109432029}
   warningRegisterText: {fileID: 1295613935}
+  usernameField: {fileID: 2036181374}
+  xpField: {fileID: 1895352434}
+  killsField: {fileID: 1384970623}
+  deathsField: {fileID: 1632407325}
+  scoreElement: {fileID: 0}
+  scoreboardContent: {fileID: 0}
 --- !u!4 &493382077
 Transform:
   m_ObjectHideFlags: 0

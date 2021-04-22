@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "780696647069",
+    "firebase_url": "https://brain-games-40234-default-rtdb.firebaseio.com",
     "project_id": "brain-games-40234",
     "storage_bucket": "brain-games-40234.appspot.com"
   },
@@ -29,6 +30,13 @@
             {
               "client_id": "780696647069-hlmovd5kpe55r2d1s7o9m4hmnm8e7v87.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "780696647069-tkcbajb9duaqead6171k7ct94tkool60.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "any.BrainltCompany.Brain"
+              }
             }
           ]
         }
@@ -58,6 +66,13 @@
             {
               "client_id": "780696647069-hlmovd5kpe55r2d1s7o9m4hmnm8e7v87.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "780696647069-tkcbajb9duaqead6171k7ct94tkool60.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "any.BrainltCompany.Brain"
+              }
             }
           ]
         }

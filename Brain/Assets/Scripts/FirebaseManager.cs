@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using Firebase;
 using Firebase.Auth;
+using Firebase.Database;
 
 public class FirebaseManager : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class FirebaseManager : MonoBehaviour
     public DependencyStatus dependencyStatus;
     public FirebaseAuth auth;
     public FirebaseUser User;
+    public DatabaseReference DBreference;
 
     //Login variables
     [Header("Login")]
@@ -28,6 +30,15 @@ public class FirebaseManager : MonoBehaviour
     public TMP_InputField passwordRegisterField;
     public TMP_InputField passwordRegisterVerifyField;
     public TMP_Text warningRegisterText;
+
+    //User Data variables
+    [Header("UserData")]
+    public TMP_InputField usernameField;
+    public TMP_InputField xpField;
+    public TMP_InputField killsField;
+    public TMP_InputField deathsField;
+    public GameObject scoreElement;
+    public Transform scoreboardContent;
 
     private void Awake()
     {
@@ -55,7 +66,22 @@ public class FirebaseManager : MonoBehaviour
         Debug.Log("Setting up firebase");
 
         auth = FirebaseAuth.DefaultInstance;
+        DBreference = FirebaseDatabase.DefaultInstance.RootReference;
     }
+
+    public void ClearLoginFeilds()
+    {
+        emailLoginField.text = "";
+        passwordLoginField.text = "";
+    }
+    public void ClearRegisterFeilds()
+    {
+        usernameRegisterField.text = "";
+        emailRegisterField.text = "";
+        passwordRegisterField.text = "";
+        passwordRegisterVerifyField.text = "";
+    }
+
 
     public void LoginButton()
     {
@@ -66,6 +92,24 @@ public class FirebaseManager : MonoBehaviour
     {
 
         StartCoroutine(Register(emailRegisterField.text, passwordRegisterField.text, usernameRegisterField.text));
+
+    }
+    public void SignOutButton()
+    {
+        auth.SignOut();
+        SceneManager.instance.LoginScreen();
+        ClearLoginFeilds();
+        ClearRegisterFeilds();
+    }
+
+    public void SavaDataButton()
+    {
+        StartCoroutine(UpdateUsernameAuth(usernameField.text));
+        StartCoroutine(UpdateUsernameDatabase(usernameField.text));
+
+        StartCoroutine(UpdateXp(int.Parse(xpField.text)));
+        StartCoroutine(UpdateKills(int.Parse(killsField.text)));
+        StartCoroutine(UpdateDeaths(int.Parse(deathsField.text)));
 
     }
 
@@ -112,9 +156,15 @@ public class FirebaseManager : MonoBehaviour
             warningLoginText.text = " ";
             confirmLoginText.text = "logged in";
 
+            StartCoroutine(LoadUserData());
             yield return new WaitForSeconds(2);
+
+            usernameField.text = User.DisplayName; 
+            
             SceneManager.instance.UserDataScreen();
             confirmLoginText.text = "";
+            ClearLoginFeilds();
+            ClearRegisterFeilds();
         }
     }
 
@@ -192,9 +242,129 @@ public class FirebaseManager : MonoBehaviour
                         //Now return to login screen
                         SceneManager.instance.LoginScreen();
                         warningRegisterText.text = "";
+                        ClearLoginFeilds();
+                        ClearRegisterFeilds();
                     }
                 }
             }
         }
     }
+
+    private IEnumerator UpdateUsernameAuth(string username)
+    {
+        UserProfile profile = new UserProfile { DisplayName = username };
+
+        var ProfileTask = User.UpdateUserProfileAsync(profile);
+
+        yield return new WaitUntil(predicate: () => ProfileTask.IsCompleted);
+
+        if(ProfileTask.Exception != null)
+        {
+            Debug.LogWarning(message: $"Failed to register task with {ProfileTask.Exception}");
+        }
+        else
+        {
+            // auth user is updated
+        }
+
+    }
+
+    private IEnumerator UpdateUsernameDatabase(string username)
+    {
+        var DBTask = DBreference.Child("users").Child(User.UserId).Child("username").SetValueAsync(username);
+
+        yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
+
+        if (DBTask.Exception != null)
+        {
+            Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
+        }
+        else
+        {
+            // databases user is updated
+        }
+
+    }
+
+    private IEnumerator UpdateXp(int _xp)
+    {
+        //Set the currently logged in user xp
+        var DBTask = DBreference.Child("users").Child(User.UserId).Child("xp").SetValueAsync(_xp);
+
+        yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
+
+        if (DBTask.Exception != null)
+        {
+            Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
+        }
+        else
+        {
+            //Xp is now updated
+        }
+    }
+
+    private IEnumerator UpdateKills(int _kills)
+    {
+        //Set the currently logged in user kills
+        var DBTask = DBreference.Child("users").Child(User.UserId).Child("kills").SetValueAsync(_kills);
+
+        yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
+
+        if (DBTask.Exception != null)
+        {
+            Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
+        }
+        else
+        {
+            //Kills are now updated
+        }
+    }
+
+    private IEnumerator UpdateDeaths(int _deaths)
+    {
+        //Set the currently logged in user deaths
+        var DBTask = DBreference.Child("users").Child(User.UserId).Child("deaths").SetValueAsync(_deaths);
+
+        yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
+
+        if (DBTask.Exception != null)
+        {
+            Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
+        }
+        else
+        {
+            //Deaths are now updated
+        }
+    }
+
+
+    private IEnumerator LoadUserData()
+    {
+        //Get the currently logged in user data
+        var DBTask = DBreference.Child("users").Child(User.UserId).GetValueAsync();
+
+        yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
+
+        if (DBTask.Exception != null)
+        {
+            Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
+        }
+        else if (DBTask.Result.Value == null)
+        {
+            //No data exists yet
+            xpField.text = "0";
+            killsField.text = "0";
+            deathsField.text = "0";
+        }
+        else
+        {
+            //Data has been retrieved
+            DataSnapshot snapshot = DBTask.Result;
+
+            xpField.text = snapshot.Child("xp").Value.ToString();
+            killsField.text = snapshot.Child("kills").Value.ToString();
+            deathsField.text = snapshot.Child("deaths").Value.ToString();
+        }
+    }
+
 }

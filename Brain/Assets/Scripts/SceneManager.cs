@@ -24,22 +24,29 @@ public class SceneManager : MonoBehaviour
         }
     }
 
-    public void Register() // this is when you hit register in login screen
+    public void ClearGame()
     {
         sign_up.SetActive(false);
+        register.SetActive(false);
+        userData.SetActive(false);
+    }
+
+    public void Register() // this is when you hit register in login screen
+    {
+        ClearGame();
         register.SetActive(true);
     }
 
     public void LoginScreen() // this is for the back button in register screen
     {
+        ClearGame();
         sign_up.SetActive(true);
-        register.SetActive(false);
+        
     }
 
     public void UserDataScreen() // this is for the back button in register screen
     {
-        sign_up.SetActive(false);
-        register.SetActive(false);
+        ClearGame();
         userData.SetActive(true);
     }
 }
