@@ -1,19 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.EventSystems;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class memoryGame : MonoBehaviour
 {
     int turn = 0;
     int[][] levels = new int[50][];
-    int level = 1;   //og = 1
+    int level = 1;  
     int process = 1;
     int gameStart = 1;
     int inputIndx = 0;
 
+    public Text textElement, textElement1;
+
+    int currScore = 0;
+    int highScore = 0; //****get high score from DB****
+
     void Start()
     {
+        textElement.text = string.Concat("Score: ", currScore);
+        textElement1.text = string.Concat("Best: ", highScore);
         if (gameStart == 1)
         {
             gameStart = 0;
@@ -23,6 +31,8 @@ public class memoryGame : MonoBehaviour
 
     void Update()
     {
+        textElement.text = string.Concat("Score: ", currScore);
+        textElement1.text = string.Concat("Best: ", highScore);
         if (turn == 1 && process == 1)    //user input
         {
             if (Input.GetMouseButtonDown(0))
@@ -89,7 +99,7 @@ public class memoryGame : MonoBehaviour
         if(levels[curLevel][inputIndx] != ans)
         {
             print("game over!");
-            Application.Quit();
+            turn = -1;
             yield break;
         }
         process = 1;
@@ -98,6 +108,11 @@ public class memoryGame : MonoBehaviour
         {
             turn = 0;
             inputIndx = 0;
+            currScore += 1;
+            if(highScore < currScore)
+            {
+                highScore = currScore;
+            }
             yield return new WaitForSeconds(100);
         }
         yield break;
