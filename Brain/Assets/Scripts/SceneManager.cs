@@ -49,4 +49,9 @@ public class SceneManager : MonoBehaviour
         ClearGame();
         userData.SetActive(true);
     }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
 }
