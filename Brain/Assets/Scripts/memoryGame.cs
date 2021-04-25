@@ -21,7 +21,7 @@ public class memoryGame : MonoBehaviour
     void Start()
     {
         textElement.text = string.Concat("Score: ", currScore);
-        textElement1.text = string.Concat("Best: ", highScore);
+        textElement1.text = string.Concat("Best:  ", highScore);
         if (gameStart == 1)
         {
             gameStart = 0;
@@ -32,7 +32,7 @@ public class memoryGame : MonoBehaviour
     void Update()
     {
         textElement.text = string.Concat("Score: ", currScore);
-        textElement1.text = string.Concat("Best: ", highScore);
+        textElement1.text = string.Concat("Best:  ", highScore);
         if (turn == 1 && process == 1)    //user input
         {
             if (Input.GetMouseButtonDown(0))
