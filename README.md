@@ -1,12 +1,38 @@
 # Brain Games
 
-In order to build production, in the top level directory, run:
+## Setup and Installation
 
-`make prod`
+1. Sign up for GitHub Student Developer Pack at https://education.github.com/pack
 
-To make all proper installations, run:
+1. Create a Unity account at https://id.unity.com
 
-`make dev_env`
+1. Download and install the Unity Student Pack (includes Unity, Unity Hub, and Unity Bug Reporter) at https://store.unity.com/#plans-individual
+
+1. Launch Unity Hub:
+
+    - Navigate to the "Installs" page and install Unity Version 2019.4.0f1
+
+    - Navigate to the "Projects" page and "Add" brain-games/Brain to your "Projects" list
+
+    - Set the "Unity Version" of the project to "2019.4.0f1"
+
+    - Set the "Target Platform" of the project to "Current Platform"
+
+    - Click on "Brain" in the "Projects" list to launch Unity and begin developing
+
+## Building, Testing, and Deploying
+
+1. To build, deploy, and test the Unity project, we will be using Unity Cloud Build
+
+    - Visit your Unity dashboard at https://dashboard.unity3d.com/
+
+    - Using the Menu, navigate to the Devops/Cloud Build/Projects
+
+    - Select project "Brain" to view the build history and start new builds
+
+    - To start a new build, click "Build: brain-games-mac-build" 
+
+    - To view a particular build's details, click "View details"
 
 ## Project Goal & Description
 
@@ -30,9 +56,7 @@ The mini games are classified according to cognitive skill:
 1. **Reasoning**: enhances the user's ability to recognize patterns and identify relationships between objects.
     - Tangrams: the player is provided with a number of shapes and an outline. The player must orient the shapes correctly within the outline. To properly solve the puzzle, there must be no shapes that overlap or go outside of the outline. There also cannot be any empty spaces inside of the outline.
 
-## Requirements
-
-The requirements for the Game API server are:
+## Functional Requirements
 
 1. The user can make a new account.
 
@@ -53,7 +77,7 @@ The requirements for the Game API server are:
 
 1. The user can earn badges.
 
-1. The user can view their prgress meter after each mini-game completion.
+1. The user can view their progress meter after each mini-game completion.
     - Displays the percentage of mini-game badges earned out of total mini-game badges for that category
 
 1. The user can opt-in to (standard) or opt-out of appearing on a public level leaderboard.
@@ -66,7 +90,7 @@ The requirements for the Game API server are:
         - Level names: Novice, [...], Intermediate, [...], Master
         - Level names account for a certain domain of levels
 
-    - Overall game badges
+    - General game badges
         - Played a certain amount of mini-games within a category
         - Played a certain amount of mini-games over all categories
         - Earned all badges within a specific category
@@ -79,7 +103,7 @@ The requirements for the Game API server are:
         - Fast Math: answered a certain amount of questions within the allotted time
         - General: finished a mini-game before timer ended
 
-    - High score per catagory (max of all mini-game high scores)
+    - High score per game catagory (max of all mini-game high scores)
         - High score per mini-game
 
     - Total points accumulated across all categories
@@ -89,8 +113,5 @@ The requirements for the Game API server are:
 
 ## Design
 
-Most of the above requirements will map directly to an API endpoint. We will use flask restx for our API server. We want the options available to the user stored on the server. This way, menus, etc. live in a single place.
+1.  We will use Firebase Database REST API.
 
-Some design issues to be resolved:
-1. How do we specify a game?
-1. How much visual guidance resides on the server?
