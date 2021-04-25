@@ -10,74 +10,74 @@
 
 1. Launch Unity Hub:
 
-    - Navigate to the "Installs" page and install Unity Version 2019.4.0f1
+    1. Navigate to the "Installs" page and install Unity Version 2019.4.0f1
 
-    - Navigate to the "Projects" page and "Add" brain-games/Brain to your "Projects" list
+    1. Navigate to the "Projects" page and "Add" brain-games/Brain to your "Projects" list
 
-    - Set the "Unity Version" of the project to "2019.4.0f1"
+    1. Set the "Unity Version" of the project to "2019.4.0f1"
 
-    - Set the "Target Platform" of the project to "Current Platform"
+    1. Set the "Target Platform" of the project to "Current Platform"
 
-    - Click on "Brain" in the "Projects" list to launch Unity and begin developing
+    1. Click on "Brain" in the "Projects" list to launch Unity and begin developing
 
 ## Building, Testing, and Deploying
 
 1. To build, deploy, and test the Unity project, we will be using Unity Cloud Build
 
-    1. Visit your Unity dashboard at https://dashboard.unity3d.com/
+1. Visit your Unity dashboard at https://dashboard.unity3d.com/
 
-    1.  Using the Menu, navigate to the Devops/Cloud Build/Projects
+1. Using the Menu, navigate to the Devops/Cloud Build/Projects
+    
+1. Select project "Brain" to view the build history and start new builds
 
-    1.  Select project "Brain" to view the build history and start new builds
+1. To build and test:
 
-    1. To build and test:
+    1. To start a new build, click "Build: brain-games-mac-build" 
 
-        1. To start a new build, click "Build: brain-games-mac-build" 
-
-        1. To view a particular build's details, click "View details"
+    1. To view a particular build's details, click "View details"
 
     ### Latest Build: SUCCESS
 
-            1. [Unity] DisplayProgressbar: Unity license
-            2. [Unity] Initialize engine version: 2019.4.0f1 (b487b79891e1)
-            3. [Unity] A meta data file (.meta) exists but its asset 'Assets/Fire/Firebase/Plugins/x86_64/FirebaseCppApp-7_1_0.so' can't be found. When moving or deleting files outside of Unity, please ensure that the corresponding .meta file is moved or deleted along with it. 
-            4. [Unity] A meta data file (.meta) exists but its asset 'Assets/Fire/Firebase/Plugins/x86_64/FirebaseCppAuth.so' can't be found. When moving or deleting files outside of Unity, please ensure that the corresponding .meta file is moved or deleted along with it. 
-            5. [Unity] A meta data file (.meta) exists but its asset 'Assets/Fire/Firebase/Plugins/x86_64/FirebaseCppDatabase.so' can't be found. When moving or deleting files outside of Unity, please ensure that the corresponding .meta file is moved or deleted along with it. 
-            6. [Unity] Assets/Scripts/returnHome.cs(9,9): warning CS0618: 'Application.LoadLevel(string)' is obsolete: 'Use SceneManager.LoadScene'
-            7. [Unity] Assets/Scripts/FastMath.cs(12,13): warning CS8321: The local function 'questionGenerator' is declared but never used
-            8. [Unity] Assets/Scripts/FastMath.cs(50,14): warning CS8321: The local function 'randomAnswerGenerator' is declared but never used
-            9. [Unity] UnityEngine.Debug:LogWarning(Object)
-            10. [Unity] Request timed out while processing request "https://public-cdn.cloud.unity3d.com/config/production", HTTP error code 0
-            11. UPM Server already running, skipping...
-            12. [Unity] DisplayProgressbar: Unity license
-            13. [Unity] Initialize engine version: 2019.4.0f1 (b487b79891e1)
-            14. [Unity] UnityEngine.Debug:LogWarning(Object)
-            15. UPM Server already running, skipping...
-            16. [Unity] DisplayProgressbar: Unity license
-            17. [Unity] Initialize engine version: 2019.4.0f1 (b487b79891e1)
-            18. [Unity] UnityEngine.Debug:LogWarning(Object)
-            19. [Unity] Assets/Scripts/returnHome.cs(9,9): warning CS0618: 'Application.LoadLevel(string)' is obsolete: 'Use SceneManager.LoadScene'
-            20. [Unity] Assets/Scripts/FastMath.cs(12,13): warning CS8321: The local function 'questionGenerator' is declared but never used
-            21. [Unity] Assets/Scripts/FastMath.cs(50,14): warning CS8321: The local function 'randomAnswerGenerator' is declared but never used
-            22. [Unity] Finished exporting player successfully.
-            23. publishing finished successfully.
-            24. Finished: SUCCESS
+        1. [Unity] DisplayProgressbar: Unity license
+        2. [Unity] Initialize engine version: 2019.4.0f1 (b487b79891e1)
+        3. [Unity] A meta data file (.meta) exists but its asset 'Assets/Fire/Firebase/Plugins/x86_64/FirebaseCppApp-7_1_0.so' can't be found. When moving or deleting files outside of Unity, please ensure that the corresponding .meta file is moved or deleted along with it. 
+        4. [Unity] A meta data file (.meta) exists but its asset 'Assets/Fire/Firebase/Plugins/x86_64/FirebaseCppAuth.so' can't be found. When moving or deleting files outside of Unity, please ensure that the corresponding .meta file is moved or deleted along with it. 
+        5. [Unity] A meta data file (.meta) exists but its asset 'Assets/Fire/Firebase/Plugins/x86_64/FirebaseCppDatabase.so' can't be found. When moving or deleting files outside of Unity, please ensure that the corresponding .meta file is moved or deleted along with it. 
+        6. [Unity] Assets/Scripts/returnHome.cs(9,9): warning CS0618: 'Application.LoadLevel(string)' is obsolete: 'Use SceneManager.LoadScene'
+        7. [Unity] Assets/Scripts/FastMath.cs(12,13): warning CS8321: The local function 'questionGenerator' is declared but never used
+        8. [Unity] Assets/Scripts/FastMath.cs(50,14): warning CS8321: The local function 'randomAnswerGenerator' is declared but never used
+        9. [Unity] UnityEngine.Debug:LogWarning(Object)
+        10. [Unity] Request timed out while processing request "https://public-cdn.cloud.unity3d.com/config/production", HTTP error code 0
+        11. UPM Server already running, skipping...
+        12. [Unity] DisplayProgressbar: Unity license
+        13. [Unity] Initialize engine version: 2019.4.0f1 (b487b79891e1)
+        14. [Unity] UnityEngine.Debug:LogWarning(Object)
+        15. UPM Server already running, skipping...
+        16. [Unity] DisplayProgressbar: Unity license
+        17. [Unity] Initialize engine version: 2019.4.0f1 (b487b79891e1)
+        18. [Unity] UnityEngine.Debug:LogWarning(Object)
+        19. [Unity] Assets/Scripts/returnHome.cs(9,9): warning CS0618: 'Application.LoadLevel(string)' is obsolete: 'Use SceneManager.LoadScene'
+        20. [Unity] Assets/Scripts/FastMath.cs(12,13): warning CS8321: The local function 'questionGenerator' is declared but never used
+        21. [Unity] Assets/Scripts/FastMath.cs(50,14): warning CS8321: The local function 'randomAnswerGenerator' is declared but never used
+        22. [Unity] Finished exporting player successfully.
+        23. publishing finished successfully.
+        24. Finished: SUCCESS
 
-    1. To deploy:
+1. To deploy:
 
-        1. To deploy a particular build, click ⋮ next to "View Details"
+    1. To deploy a particular build, click ⋮ next to "View Details"
 
-        1. Select "Share Link"
+    1. Select "Share Link"
 
-        1. Select "Open link in the new window"
+    1. Select "Open link in the new window"
 
-        1. In the new window, select "Download .Zip File"
+    1. In the new window, select "Download .Zip File"
 
-        1. Unzip the file and and open the folder
-        
-        1. Launch "basics copy"
+    1. Unzip the file and and open the folder
+    
+    1. Launch "basics copy"
 
-        1. Play the game
+    1. Play the game
 
     ### Latest Deployment
 
