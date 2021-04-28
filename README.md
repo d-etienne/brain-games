@@ -24,13 +24,19 @@
 
 1. To build, deploy, and test the Unity project, we will be using Unity Cloud Build
 
-1. Visit your Unity dashboard at https://dashboard.unity3d.com/
+1. Each time a change is pushed to the the repository, a build will begin.
 
-1. Using the Menu, navigate to the Devops/Cloud Build/Projects
-    
-1. Select project "Brain" to view the build history and start new builds
+1. An email notification will be sent when the build is complete.
 
-1. To build and test:
+1. An Slack notification will be sent to the #brain-games channel when the build is begins and is complete.
+
+1. To manually build and test:
+
+    1. Visit your Unity dashboard at https://dashboard.unity3d.com/
+
+    1. Using the Menu, navigate to the Devops/Cloud Build/Projects
+        
+    1. Select project "Brain" to view the build history and start new builds
 
     1. To start a new build, click "Build: brain-games-mac-build" 
 
@@ -46,22 +52,25 @@
         6. [Unity] Assets/Scripts/returnHome.cs(9,9): warning CS0618: 'Application.LoadLevel(string)' is obsolete: 'Use SceneManager.LoadScene'
         7. [Unity] Assets/Scripts/FastMath.cs(12,13): warning CS8321: The local function 'questionGenerator' is declared but never used
         8. [Unity] Assets/Scripts/FastMath.cs(50,14): warning CS8321: The local function 'randomAnswerGenerator' is declared but never used
-        9. [Unity] UnityEngine.Debug:LogWarning(Object)
-        10. [Unity] Request timed out while processing request "https://public-cdn.cloud.unity3d.com/config/production", HTTP error code 0
-        11. UPM Server already running, skipping...
-        12. [Unity] DisplayProgressbar: Unity license
-        13. [Unity] Initialize engine version: 2019.4.0f1 (b487b79891e1)
-        14. [Unity] UnityEngine.Debug:LogWarning(Object)
-        15. UPM Server already running, skipping...
-        16. [Unity] DisplayProgressbar: Unity license
-        17. [Unity] Initialize engine version: 2019.4.0f1 (b487b79891e1)
-        18. [Unity] UnityEngine.Debug:LogWarning(Object)
-        19. [Unity] Assets/Scripts/returnHome.cs(9,9): warning CS0618: 'Application.LoadLevel(string)' is obsolete: 'Use SceneManager.LoadScene'
-        20. [Unity] Assets/Scripts/FastMath.cs(12,13): warning CS8321: The local function 'questionGenerator' is declared but never used
-        21. [Unity] Assets/Scripts/FastMath.cs(50,14): warning CS8321: The local function 'randomAnswerGenerator' is declared but never used
-        22. [Unity] Finished exporting player successfully.
-        23. publishing finished successfully.
-        24. Finished: SUCCESS
+        9. [Unity] Assets/Scripts/returnHome.cs(9,9): warning CS0618: 'Application.LoadLevel(string)' is obsolete: 'Use SceneManager.LoadScene'
+        10. [Unity] Assets/Scripts/FastMath.cs(12,13): warning CS8321: The local function 'questionGenerator' is declared but never used
+        11. [Unity] Assets/Scripts/FastMath.cs(50,14): warning CS8321: The local function 'randomAnswerGenerator' is declared but never used
+        12. [Unity] UnityEngine.Debug:LogWarning(Object)
+        13. [Unity] Request timed out while processing request "https://public-cdn.cloud.unity3d.com/config/production", HTTP error code 0
+        14. UPM Server already running, skipping...
+        15. [Unity] DisplayProgressbar: Unity license
+        16. [Unity] Initialize engine version: 2019.4.0f1 (b487b79891e1)
+        17. [Unity] UnityEngine.Debug:LogWarning(Object)
+        18. UPM Server already running, skipping...
+        19. [Unity] DisplayProgressbar: Unity license
+        20. [Unity] Initialize engine version: 2019.4.0f1 (b487b79891e1)
+        21. [Unity] UnityEngine.Debug:LogWarning(Object)
+        22. [Unity] Assets/Scripts/returnHome.cs(9,9): warning CS0618: 'Application.LoadLevel(string)' is obsolete: 'Use SceneManager.LoadScene'
+        23. [Unity] Assets/Scripts/FastMath.cs(12,13): warning CS8321: The local function 'questionGenerator' is declared but never used
+        24. [Unity] Assets/Scripts/FastMath.cs(50,14): warning CS8321: The local function 'randomAnswerGenerator' is declared but never used
+        25. [Unity] Finished exporting player successfully.
+        26. publishing finished successfully.
+        27. Finished: SUCCESS
 
 1. To deploy:
 
