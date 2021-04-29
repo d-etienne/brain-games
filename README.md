@@ -24,17 +24,17 @@
 
 1. To build, deploy, and test the Unity project, we will be using Unity Cloud Build
 
-1. Each time a change is pushed to the the repository, a build will begin.
+1. Each time a change is pushed to the repository, a build will begin.
 
 1. An email notification will be sent when the build is complete.
 
-1. An Slack notification will be sent to the #brain-games channel when the build is begins and is complete.
+1. A Slack notification will be sent to the #brain-games channel when the build begins and completes.
 
 1. To manually build and test:
 
     1. Visit your Unity dashboard at https://dashboard.unity3d.com/
 
-    1. Using the Menu, navigate to the Devops/Cloud Build/Projects
+    1. Using the Menu, navigate to the DevOps/Cloud Build/Projects
         
     1. Select project "Brain" to view the build history and start new builds
 
@@ -80,9 +80,9 @@
 
     1. Select "Open link in the new window"
 
-    1. In the new window, select "Download .Zip File"
+    1. In the new window, select "Download .ZIP File"
 
-    1. Unzip the file and and open the folder
+    1. Unzip the file and open the folder
     
     1. Launch "basics copy"
 
@@ -94,22 +94,22 @@
 
 ## Project Goal & Description
 
-Goal: to assist students with developing and strengthing their cognitive abilities through playing mini-games that challenge and improve various cognitive skills.
+Goal: to assist students with developing and strengthening their cognitive abilities through playing mini-games that challenge and improve various cognitive skills.
 
 The mini games are classified according to cognitive skill:
 
-1. **Memory**: strengthens short term-memory and increases the ability focus.
+1. **Memory**: strengthens short-term memory and increases the ability focus.
     - Match the Cards: the player is presented with an even amount of cards that are face down. 
     Each round, the player is allowed to flip a pair of cards up to find a match. If the pair of cards do not match, they are flipped back to their face-down position. If the pair of cards match, they remain face-up. The player continues to select pairs of cards until all of the matches are found. The player must complete this task within a certain allotment of time.
 
 1. **Language**: enhances the user's fluency in and articulation of the English language.
-    - Word Permutations: the player is presented with a set of letters. Within a certain allotment of time, the player must construct as many word permuations as they can, using the letters provided.
+    - Word Permutations: the player is presented with a set of letters. Within a certain allotment of time, the player must construct as many word permutations as they can, using the letters provided.
 
 1. **Perception**: enhances the user's ability to process information quicker and improves visual feedback reflexes.
-    - Spot the Difference: the player is presented with two images. The image on the the right is a manipulation of the image to the left. Within a certain allowment of time, the player must use the original image to the left to find the mofifications in the image to the right.
+    - Spot the Difference: the player is presented with two images. The image on the right is a manipulation of the image to the left. Within a certain allotment of time, the player must use the original image to the left to find the modifications in the image to the right.
 
 1. **Numeracy**: enhances the user's algebraic skills.
-    - Fast Math: the player is presented with a series of two-operand ( + , - , * , / ) math problems. A new question is presented after the previous question has been answered. They player must answer as many problems as they can within a certain allotment of time.
+    - Fast Math: the player is presented with a series of two-operand ( + , - , * , / ) math problems. A new question is presented after the previous question has been answered. The player must answer as many problems as they can within a certain allotment of time.
 
 1. **Reasoning**: enhances the user's ability to recognize patterns and identify relationships between objects.
     - Tangrams: the player is provided with a number of shapes and an outline. The player must orient the shapes correctly within the outline. To properly solve the puzzle, there must be no shapes that overlap or go outside of the outline. There also cannot be any empty spaces inside of the outline.
@@ -161,7 +161,7 @@ The mini games are classified according to cognitive skill:
         - Fast Math: answered a certain amount of questions within the allotted time
         - General: finished a mini-game before timer ended
 
-    - High score per game catagory (max of all mini-game high scores)
+    - High score per game category (max of all mini-game high scores)
         - High score per mini-game
 
     - Total points accumulated across all categories
@@ -169,7 +169,7 @@ The mini games are classified according to cognitive skill:
 
     - Number of mini-games played within a category
 
-## Design
+## Design Implementaion
 
 1.  We will use Firebase Database REST API.
 

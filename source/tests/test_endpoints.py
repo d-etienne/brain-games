@@ -44,4 +44,3 @@ class TestEndpoints(TestCase):
         login = UserLogin(Resource)
         ret = login.post()
         self.assertIn("Login Sucessful", ret)
-
