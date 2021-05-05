@@ -1,0 +1,83 @@
+{
+  "project_info": {
+    "project_number": "780696647069",
+    "firebase_url": "https://brain-games-40234-default-rtdb.firebaseio.com",
+    "project_id": "brain-games-40234",
+    "storage_bucket": "brain-games-40234.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:780696647069:android:6e86a629e103b4c7bc2b74",
+        "android_client_info": {
+          "package_name": "com.DefaultCompany.Brain"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "780696647069-hlmovd5kpe55r2d1s7o9m4hmnm8e7v87.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGd2sTrEuJgj9cBchabtWO59M9zwOAKzo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "780696647069-hlmovd5kpe55r2d1s7o9m4hmnm8e7v87.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "780696647069-tkcbajb9duaqead6171k7ct94tkool60.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "any.BrainltCompany.Brain"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:780696647069:android:b6cf00983d3934f9bc2b74",
+        "android_client_info": {
+          "package_name": "com.DefaultCompany.Braingames"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "780696647069-hlmovd5kpe55r2d1s7o9m4hmnm8e7v87.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGd2sTrEuJgj9cBchabtWO59M9zwOAKzo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "780696647069-hlmovd5kpe55r2d1s7o9m4hmnm8e7v87.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "780696647069-tkcbajb9duaqead6171k7ct94tkool60.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "any.BrainltCompany.Brain"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

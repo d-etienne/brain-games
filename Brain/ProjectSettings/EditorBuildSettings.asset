@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Login Screen.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Level Select.unity
+    guid: bf08852a982ef4fe8a28f1a139b75dca
+  - enabled: 1
+    path: Assets/Scenes/Memory Game.unity
+    guid: 82eef9db69db0a44b99735899f0d6bf5
+  - enabled: 1
+    path: Assets/Scenes/ComingSoon.unity
+    guid: eb157bfa947a5424585e00fcc22c83b2
+  m_configObjects: {}
