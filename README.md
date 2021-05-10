@@ -49,28 +49,23 @@
         3. [Unity] A meta data file (.meta) exists but its asset 'Assets/Fire/Firebase/Plugins/x86_64/FirebaseCppApp-7_1_0.so' can't be found. When moving or deleting files outside of Unity, please ensure that the corresponding .meta file is moved or deleted along with it. 
         4. [Unity] A meta data file (.meta) exists but its asset 'Assets/Fire/Firebase/Plugins/x86_64/FirebaseCppAuth.so' can't be found. When moving or deleting files outside of Unity, please ensure that the corresponding .meta file is moved or deleted along with it. 
         5. [Unity] A meta data file (.meta) exists but its asset 'Assets/Fire/Firebase/Plugins/x86_64/FirebaseCppDatabase.so' can't be found. When moving or deleting files outside of Unity, please ensure that the corresponding .meta file is moved or deleted along with it. 
-        6. [Unity] Assets/Scripts/returnHome.cs(9,9): warning CS0618: 'Application.LoadLevel(string)' is obsolete: 'Use SceneManager.LoadScene'
-        7. [Unity] Assets/Scripts/FastMath.cs(12,13): warning CS8321: The local function 'questionGenerator' is declared but never used
-        8. [Unity] Assets/Scripts/FastMath.cs(50,14): warning CS8321: The local function 'randomAnswerGenerator' is declared but never used
-        9. [Unity] Assets/Scripts/returnHome.cs(9,9): warning CS0618: 'Application.LoadLevel(string)' is obsolete: 'Use SceneManager.LoadScene'
-        10. [Unity] Assets/Scripts/FastMath.cs(12,13): warning CS8321: The local function 'questionGenerator' is declared but never used
-        11. [Unity] Assets/Scripts/FastMath.cs(50,14): warning CS8321: The local function 'randomAnswerGenerator' is declared but never used
-        12. [Unity] UnityEngine.Debug:LogWarning(Object)
-        13. [Unity] Request timed out while processing request "https://public-cdn.cloud.unity3d.com/config/production", HTTP error code 0
+        6. [Unity] Assets/Scripts/FastMath.cs(12,13): warning CS8321: The local function 'questionGenerator' is declared but never used
+        7. [Unity] Assets/Scripts/FastMath.cs(50,14): warning CS8321: The local function 'randomAnswerGenerator' is declared but never used
+        8. [Unity] UnityEngine.Debug:LogWarning(Object)
+        9. [Unity] Request timed out while processing request "https://public-cdn.cloud.unity3d.com/config/production", HTTP error code 0
+        10. UPM Server already running, skipping...
+        11. [Unity] DisplayProgressbar: Unity license
+        12. [Unity] Initialize engine version: 2019.4.0f1 (b487b79891e1)
+        13. [Unity] UnityEngine.Debug:LogWarning(Object)
         14. UPM Server already running, skipping...
         15. [Unity] DisplayProgressbar: Unity license
         16. [Unity] Initialize engine version: 2019.4.0f1 (b487b79891e1)
         17. [Unity] UnityEngine.Debug:LogWarning(Object)
-        18. UPM Server already running, skipping...
-        19. [Unity] DisplayProgressbar: Unity license
-        20. [Unity] Initialize engine version: 2019.4.0f1 (b487b79891e1)
-        21. [Unity] UnityEngine.Debug:LogWarning(Object)
-        22. [Unity] Assets/Scripts/returnHome.cs(9,9): warning CS0618: 'Application.LoadLevel(string)' is obsolete: 'Use SceneManager.LoadScene'
-        23. [Unity] Assets/Scripts/FastMath.cs(12,13): warning CS8321: The local function 'questionGenerator' is declared but never used
-        24. [Unity] Assets/Scripts/FastMath.cs(50,14): warning CS8321: The local function 'randomAnswerGenerator' is declared but never used
-        25. [Unity] Finished exporting player successfully.
-        26. publishing finished successfully.
-        27. Finished: SUCCESS
+        18. [Unity] Assets/Scripts/FastMath.cs(12,13): warning CS8321: The local function 'questionGenerator' is declared but never used
+        19. [Unity] Assets/Scripts/FastMath.cs(50,14): warning CS8321: The local function 'randomAnswerGenerator' is declared but never used
+        20. [Unity] Finished exporting player successfully.
+        21. publishing finished successfully.
+        22. Finished: SUCCESS
 
 1. To deploy:
 
@@ -90,7 +85,7 @@
 
     ### Latest Deployment
 
-        1. https://developer.cloud.unity3d.com/share/share.html?shareId=-J2OMJbhJD
+        1. https://developer.cloud.unity3d.com/share/share.html?shareId=b1lFhi6NgP
 
 ## Project Goal & Description
 
