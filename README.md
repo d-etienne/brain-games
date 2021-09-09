@@ -100,14 +100,14 @@ The mini games are classified according to cognitive skill:
 1. **Language**: enhances the user's fluency in and articulation of the English language.
     - Word Permutations: the player is presented with a set of letters. Within a certain allotment of time, the player must construct as many word permutations as they can, using the letters provided.
 
-1. **Perception**: enhances the user's ability to process information quicker and improves visual feedback reflexes.
-    - Spot the Difference: the player is presented with two images. The image on the right is a manipulation of the image to the left. Within a certain allotment of time, the player must use the original image to the left to find the modifications in the image to the right.
+<!-- 1. **Perception**: enhances the user's ability to process information quicker and improves visual feedback reflexes.
+    - Spot the Difference: the player is presented with two images. The image on the right is a manipulation of the image to the left. Within a certain allotment of time, the player must use the original image to the left to find the modifications in the image to the right. -->
 
 1. **Numeracy**: enhances the user's algebraic skills.
     - Fast Math: the player is presented with a series of two-operand ( + , - , * , / ) math problems. A new question is presented after the previous question has been answered. The player must answer as many problems as they can within a certain allotment of time.
 
-1. **Reasoning**: enhances the user's ability to recognize patterns and identify relationships between objects.
-    - Tangrams: the player is provided with a number of shapes and an outline. The player must orient the shapes correctly within the outline. To properly solve the puzzle, there must be no shapes that overlap or go outside of the outline. There also cannot be any empty spaces inside of the outline.
+<!-- 1. **Reasoning**: enhances the user's ability to recognize patterns and identify relationships between objects.
+    - Tangrams: the player is provided with a number of shapes and an outline. The player must orient the shapes correctly within the outline. To properly solve the puzzle, there must be no shapes that overlap or go outside of the outline. There also cannot be any empty spaces inside of the outline. -->
 
 ## Functional Requirements
 
