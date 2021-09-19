@@ -2,82 +2,107 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// This script utilizes tutorial code from: http://codesaying.com/create-a-math-game-for-kids-using-unity-scripting/
+
 public class FastMath : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
-        string question;
-
-        int questionGenerator()
+        // This funciton generates two random operands, randomly adds,
+        // subtracts, multiplies, or divides them, and returns the result.
+        int equationAnswerGenerator()
         {
+            string question;
             int operand1, operand2;
-            int rand_operator = Mathf.FloorToInt(Random.value * 4);
+            int rand_operator = Random.Range(0, 3);
 
-            if (rand_operator == 0)
+            if (rand_operator == 0) // Addition
             {
-                operand1 = Mathf.FloorToInt(Random.value * 100);
-                operand2 = Mathf.FloorToInt(Random.value * 100);
-                question = operand1 + "+" + operand2 + " = ? ";
+                operand1 = Random.Range(1, 100);
+                operand2 = Random.Range(1, 100);
+                question = operand1 + " + " + operand2 + " = ? "; // To be displayed to user
                 return (operand1 + operand2);
             }
-            else if (rand_operator == 1)
+            else if (rand_operator == 1) // Subtraction
             {
-                operand1 = Mathf.FloorToInt(Random.value * 100);
-                operand2 = Mathf.FloorToInt(Random.value * 100);
-                question = operand1 + "-" + operand2 + " = ? ";
+                operand1 = Random.Range(1, 100);
+                operand2 = Random.Range(1, 100);
+                question = operand1 + " - " + operand2 + " = ? "; // To be displayed to user
                 return (operand1 - operand2);
             }
-            else if (rand_operator == 2)
+            else if (rand_operator == 2) // Multiplication
             {
-                operand1 = Mathf.FloorToInt(Random.value * 50);
-                operand2 = Random.Range(2, 10);
-                question = operand1 + "*" + operand2 + " = ? ";
+                operand1 = Random.Range(1, 50);
+                operand2 = Random.Range(1, 10);
+                question = operand1 + " * " + operand2 + " = ? "; // To be displayed to user
                 return (operand1 * operand2);
             }
-            else if (rand_operator == 3)
+            else if (rand_operator == 3) // Division
             {
-                operand1 = Mathf.FloorToInt(Random.value * 50);
-                operand2 = Random.Range(2, 10);
-                question = operand1 + "/" + operand2 + " = ? ";
+                operand1 = Random.Range(1, 50);
+                operand2 = Random.Range(1, 10);
+                question = operand1 + " / " + operand2 + " = ? "; // To be displayed to user
                 return (operand1 / operand2);
             }
-          return 0;
         }
 
-        //this list contains the 3 different answer for the user.
-        List<int> answerChoices = new List<int>();
-        void randomAnswerGenerator(int answer)
+        // This funciton produces two numbers that are different from the
+        // result returned in equationAnswerGenerator() by adding the result to
+        // or subtracting it from a random number within the range of 1 through 10.
+        // These three values are appended to a list which will be used to display
+        // the three answer choices to the user in a separate function. The position
+        // of the correct and incorrect answers are ramdonly selected.
+        void randAnswerGenerator(int answer)
         {
-            int correctAnswerIndex = Mathf.FloorToInt(Random.value * 3);
+            List<int> answerChoices = new List<int>(); // To be displayed to user
+            int correctAnswerInd = Random.Range(0, 2);
+            int incorrectAnswer;
+
+            // Random number that is added to or subtracted from
+            // the correct answer to produce incorrect answers.
+            int randNum;
+
+            // This flag ensures that one incorrect answer is the result of adding
+            // the random number to the result returned in equationAnswerGenerator()
+            // and that the other incorrect answer is the result of subtracting the
+            // random number from the result returned in equationAnswerGenerator().
+            // This is done to prevent a duplicate incorrect answer. When true, add.
+            // When false, subtract.
+            bool addSubFlag = true;
+
             for (int i = 0; i < 3; i++)
             {
-                if (i == correctAnswerIndex)
-                { //If this is the index for the correct answer, put correct answer here
+                if (i == correctAnswerInd)
+                {
                     answerChoices.Add(answer);
                 }
                 else
                 {
-                    int wrongAnswer = -1;
-                    int randOpt = Mathf.FloorToInt(Random.value * 2); //Should we add or subtract the random number
-                    int randBase = Mathf.FloorToInt(Random.value * 5) + 1; //Plus 1 so it doesn't equal zero. Change the 5 to modify how much the generated answers will differ from the real answer
-                    if (randOpt == 0)
+                    randNum = Random.Range(1, 10);
+
+                    if (addSubFlag == true) // Add random amount to correct answer
                     {
-                        wrongAnswer = answer + randBase;
+                        incorrectAnswer = answer + randNum;
+                        addSubFlag = false;
                     }
-                    else
+                    else if (addSubFlag == false) // Subtract random amount from correct answer
                     {
-                        wrongAnswer = answer - randBase;
+                        incorrectAnswer = answer - randNum;
                     }
-                    answerChoices.Add(wrongAnswer);
+                    answerChoices.Add(incorrectAnswer);
                 }
             }
         }
     }
 
+    int startResult = equationAnswerGenerator();
+    randAnswerGenerator(startResult);
+
     // Update is called once per frame
     void Update()
     {
-
+      int updateResult = equationAnswerGenerator();
+      randAnswerGenerator(updateResult);
     }
 }
