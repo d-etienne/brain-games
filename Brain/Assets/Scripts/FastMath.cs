@@ -14,7 +14,8 @@ public class FastMath : MonoBehaviour
         int equationAnswerGenerator()
         {
             string question;
-            int operand1, operand2;
+            int operand1 = 0;
+            int operand2 = 0;
             int rand_operator = Random.Range(0, 3);
 
             if (rand_operator == 0) // Addition
@@ -45,6 +46,7 @@ public class FastMath : MonoBehaviour
                 question = operand1 + " / " + operand2 + " = ? "; // To be displayed to user
                 return (operand1 / operand2);
             }
+            return 0;
         }
 
         // This funciton produces two numbers that are different from the
@@ -57,11 +59,11 @@ public class FastMath : MonoBehaviour
         {
             List<int> answerChoices = new List<int>(); // To be displayed to user
             int correctAnswerInd = Random.Range(0, 2);
-            int incorrectAnswer;
+            int incorrectAnswer = 0;
 
             // Random number that is added to or subtracted from
             // the correct answer to produce incorrect answers.
-            int randNum;
+            int randNum = 0;
 
             // This flag ensures that one incorrect answer is the result of adding
             // the random number to the result returned in equationAnswerGenerator()
@@ -96,13 +98,15 @@ public class FastMath : MonoBehaviour
         }
     }
 
-    int startResult = equationAnswerGenerator();
-    randAnswerGenerator(startResult);
+    // int startResult = 0;
+    // startResult = equationAnswerGenerator();
+    // randAnswerGenerator(startResult);
 
     // Update is called once per frame
     void Update()
     {
-      int updateResult = equationAnswerGenerator();
-      randAnswerGenerator(updateResult);
+      // int updateResult = 0;
+      // updateResult = equationAnswerGenerator();
+      // randAnswerGenerator(updateResult);
     }
 }
