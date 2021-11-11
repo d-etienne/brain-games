@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ComingSoon.unity
     guid: eb157bfa947a5424585e00fcc22c83b2
+  - enabled: 1
+    path: Assets/Scenes/User Data.unity
+    guid: 276a3f34f5c934b2e80bb780d591ecc1
+  - enabled: 1
+    path: Assets/Scenes/Fast Math.unity
+    guid: 5de887f2161ce48cbb3983fb2dd24d45
   m_configObjects: {}

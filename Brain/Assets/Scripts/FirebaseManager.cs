@@ -41,8 +41,34 @@ public class FirebaseManager : MonoBehaviour
     //public GameObject scoreElement;
     //public Transform scoreboardContent;
 
+    public string emailToRemember;
+    public string passwordToRemember;
+
+
+    private static FirebaseManager _singleton;
+    public static FirebaseManager Singleton
+    {
+        get => _singleton;
+        private set
+        {
+            if (_singleton == null)
+            {
+                _singleton = value;
+            }
+            else if (_singleton != value) {
+                Destroy(value.gameObject);
+            }
+        }
+    }
+
+
     private void Awake()
     {
+
+        // THIS IS SINGLETTON STUFF AND STUFF DIRECTLY ABOVE
+        DontDestroyOnLoad(this.gameObject);
+        Singleton = this;
+
         FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task =>
         {
             dependencyStatus = task.Result;
@@ -57,10 +83,8 @@ public class FirebaseManager : MonoBehaviour
                 Debug.Log(" Couldnt resolve firebase dependencies" + dependencyStatus);
 
             }
-
         });
         //auth.SignOut();
-
     }
 
     private void InitializeFirebase()
@@ -69,6 +93,7 @@ public class FirebaseManager : MonoBehaviour
 
         auth = FirebaseAuth.DefaultInstance;
         DBreference = FirebaseDatabase.DefaultInstance.RootReference;
+
     }
 
     public void ClearLoginFeilds()
@@ -122,6 +147,9 @@ public class FirebaseManager : MonoBehaviour
 
     private IEnumerator Login(string email, string password)
     {
+        emailToRemember = email;
+        passwordToRemember = password;
+
         var loginTask = auth.SignInWithEmailAndPasswordAsync(email, password);
 
         yield return new WaitUntil(predicate: () => loginTask.IsCompleted);
@@ -172,6 +200,7 @@ public class FirebaseManager : MonoBehaviour
             confirmLoginText.text = "";
             ClearLoginFeilds();
             ClearRegisterFeilds();
+
         }
     }
 

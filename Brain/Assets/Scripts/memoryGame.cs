@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using TMPro;
+using Firebase;
+using Firebase.Auth;
+using Firebase.Database;
 
 public class memoryGame : MonoBehaviour
 {
@@ -13,10 +17,34 @@ public class memoryGame : MonoBehaviour
     int gameStart = 1;
     int inputIndx = 0;
 
+    public DatabaseReference DBreference;
+    public DependencyStatus dependencyStatus;
+    public FirebaseUser User;
     public Text textElement, textElement1;
 
     int currScore = 0;
     int highScore = 0; //****get high score from DB****
+
+
+    private void Awake()
+    {
+        FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task =>
+        {
+            dependencyStatus = task.Result;
+
+            if (dependencyStatus == DependencyStatus.Available)
+            {
+                DBreference = FirebaseDatabase.DefaultInstance.RootReference;
+
+
+            }
+            else
+            {
+                Debug.Log(" Couldnt resolve firebase dependencies" + dependencyStatus);
+
+            }
+        });
+    }
 
     void Start()
     {
@@ -62,6 +90,7 @@ public class memoryGame : MonoBehaviour
             process = 0;
             StartCoroutine(probDisplay(levels[level]));
         }
+
     }
 
     IEnumerator waitFor(float x)
@@ -99,6 +128,7 @@ public class memoryGame : MonoBehaviour
         if(levels[curLevel][inputIndx] != ans)
         {
             print("game over!");
+            //StartCoroutine(UpdateDatabase());
             turn = -1;
             yield break;
         }
@@ -130,5 +160,21 @@ public class memoryGame : MonoBehaviour
             levels[i] = problem;
         }
         yield break;
+    }
+
+    IEnumerator UpdateDatabase()
+    {
+        var DBTask = DBreference.Child("users").Child(User.UserId).Child("MemoryScore").SetValueAsync(highScore);
+        yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
+
+        if (DBTask.Exception != null)
+        {
+            Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
+        }
+        else
+        {
+
+        }
+
     }
 }
