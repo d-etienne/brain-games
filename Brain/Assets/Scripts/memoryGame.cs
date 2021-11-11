@@ -164,7 +164,13 @@ public class memoryGame : MonoBehaviour
 
     IEnumerator UpdateDatabase()
     {
-        var DBTask = DBreference.Child("users").Child(User.UserId).Child("MemoryScore").SetValueAsync(highScore);
+        var DBChild = DBreference.Child("users");
+        Debug.Log("DBChild = " + DBChild.ToString());
+        Debug.Log("User = " + User);
+        var DBUsers = DBChild.Child(User.UserId);
+        var Memory = DBUsers.Child("MemoryScore");
+        var DBTask = Memory.SetValueAsync(highScore);
+        
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
 
         if (DBTask.Exception != null)
