@@ -128,7 +128,7 @@ public class memoryGame : MonoBehaviour
         if(levels[curLevel][inputIndx] != ans)
         {
             print("game over!");
-            //StartCoroutine(UpdateDatabase());
+            StartCoroutine(UpdateDatabase());
             turn = -1;
             yield break;
         }
@@ -165,9 +165,7 @@ public class memoryGame : MonoBehaviour
     IEnumerator UpdateDatabase()
     {
         var DBChild = DBreference.Child("users");
-        Debug.Log("DBChild = " + DBChild.ToString());
-        Debug.Log("User = " + User);
-        var DBUsers = DBChild.Child(User.UserId);
+        var DBUsers = DBChild.Child(FirebaseManager.Singleton.User.UserId);
         var Memory = DBUsers.Child("MemoryScore");
         var DBTask = Memory.SetValueAsync(highScore);
         

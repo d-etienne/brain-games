@@ -44,6 +44,8 @@ public class FirebaseManager : MonoBehaviour
     public string emailToRemember;
     public string passwordToRemember;
 
+    //public string UserID;
+
 
     private static FirebaseManager _singleton;
     public static FirebaseManager Singleton
@@ -309,6 +311,8 @@ public class FirebaseManager : MonoBehaviour
     {
         var DBTask = DBreference.Child("users").Child(User.UserId).Child("username").SetValueAsync(username);
 
+        
+
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
 
         if (DBTask.Exception != null)
@@ -378,6 +382,8 @@ public class FirebaseManager : MonoBehaviour
     {
         //Get the currently logged in user data
         var DBTask = DBreference.Child("users").Child(User.UserId).GetValueAsync();
+
+        //UserID = User.UserId;
 
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
 
