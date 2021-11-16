@@ -38,6 +38,8 @@ public class FirebaseManager : MonoBehaviour
     public TMP_InputField MemoryScoreField;
     public TMP_InputField MemoryGamesPlayedField;
     public TMP_InputField MemoryBadgesField;
+    //public TMP_InputField NumeracyScoreField;
+    //public TMP_InputField NumeracyGamesPlayedField;
     //public GameObject scoreElement;
     //public Transform scoreboardContent;
 
