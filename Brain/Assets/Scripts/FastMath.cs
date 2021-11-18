@@ -79,7 +79,7 @@ public class FastMath : MonoBehaviour
     public int questionGenerator()
     {
         string question;
-        int operand1, operand2, answer;
+        int operand, operand1, operand2, answer;
         int operation = Mathf.FloorToInt(Random.value * 4); //operation type
 
         int addition = 0;
@@ -125,8 +125,9 @@ public class FastMath : MonoBehaviour
         }
         else if (operation == division)
         {
-            operand1 = Mathf.FloorToInt(Random.value * 50);
+            operand = Mathf.FloorToInt(Random.value * 50);
             operand2 = Random.Range(2, 10);
+            operand1 = operand * operand2;
             question = operand1.ToString() + "/" + operand2.ToString() + " = ? ";
             questionDisplay.text = ("Question: " + question);
             answer = operand1 / operand2;
