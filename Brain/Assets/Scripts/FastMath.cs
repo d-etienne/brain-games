@@ -58,14 +58,19 @@ public class FastMath : MonoBehaviour
         foreach(var ans in answerChoices){
             Debug.Log(ans);
         }
-                
-        GameObject.Find("Answer 1").GetComponentInChildren<Text>().text = answerChoices[0].ToString();
-        GameObject.Find("Answer 2").GetComponentInChildren<Text>().text = answerChoices[1].ToString();
-        GameObject.Find("Answer 3").GetComponentInChildren<Text>().text = answerChoices[2].ToString();
+     
+        for (int i = 0; i <3; i++){
+            GameObject.Find("Answer " + (i+1).ToString()).GetComponentInChildren<Text>().text = answerChoices[i].ToString();
+            GameObject.Find("Answer " + (i+1).ToString() + " Click").GetComponentInChildren<Text>().text = answerChoices[i].ToString();
 
-        GameObject.Find("Answer 1 Click").GetComponentInChildren<Text>().text = answerChoices[0].ToString();
-        GameObject.Find("Answer 2 Click").GetComponentInChildren<Text>().text = answerChoices[1].ToString();
-        GameObject.Find("Answer 3 Click").GetComponentInChildren<Text>().text = answerChoices[2].ToString();
+        }
+        // GameObject.Find("Answer 1").GetComponentInChildren<Text>().text = answerChoices[0].ToString();
+        // GameObject.Find("Answer 2").GetComponentInChildren<Text>().text = answerChoices[1].ToString();
+        // GameObject.Find("Answer 3").GetComponentInChildren<Text>().text = answerChoices[2].ToString();
+
+        // GameObject.Find("Answer 1 Click").GetComponentInChildren<Text>().text = answerChoices[0].ToString();
+        // GameObject.Find("Answer 2 Click").GetComponentInChildren<Text>().text = answerChoices[1].ToString();
+        // GameObject.Find("Answer 3 Click").GetComponentInChildren<Text>().text = answerChoices[2].ToString();
 
         
 
@@ -75,16 +80,39 @@ public class FastMath : MonoBehaviour
     {
         string question;
         int operand1, operand2, answer;
-        int rand_operator = Mathf.FloorToInt(Random.value * 4); //operation type
+        int operation = Mathf.FloorToInt(Random.value * 4); //operation type
 
-        if ( rand_operator == 0 || rand_operator == 1 || rand_operator == 2 || rand_operator == 3 ) // addition
+        int addition = 0;
+        int subtraction = 1;
+        int multiplication = 2;
+        int division = 3;
+
+        if ( operation == addition ) // addition
         {
-            // operand1 = Mathf.FloorToInt(Random.value * 100);
-            // operand2 = Mathf.FloorToInt(Random.value * 100);
-            // question = operand1.ToString() + "+" + operand2.ToString() + " = ? ";
-            // questionDisplay.text = ("Question: " + question);
-            // answer = operand1 + operand2;
-            // // GameObject.Find("Answer 1").GetComponentInChildren<Text>().text = "hello";
+            operand1 = Mathf.FloorToInt(Random.value * 100);
+            operand2 = Mathf.FloorToInt(Random.value * 100);
+            question = operand1.ToString() + "+" + operand2.ToString() + " = ? ";
+            questionDisplay.text = ("Question: " + question);
+            answer = operand1 + operand2;
+            // GameObject.Find("Answer 1").GetComponentInChildren<Text>().text = "hello";
+
+
+            return (answer);
+        }
+        else if (operation == subtraction  )
+        {
+            operand1 = Mathf.FloorToInt(Random.value * 100);
+            operand2 = Mathf.FloorToInt(Random.value * 100);
+            question = operand1.ToString() + "-" + operand2.ToString() + " = ? ";
+            questionDisplay.text = ("Question: " + question);
+            answer = operand1 - operand2;
+            // GameObject.Find("Answer 1").GetComponentInChildren<Text>().text = "hello";
+
+
+            return (answer);
+        }
+        else if (operation == multiplication)
+        {
             operand1 = Mathf.FloorToInt(Random.value * 50);
             operand2 = Random.Range(2, 10);
             question = operand1.ToString() + "*" + operand2.ToString() + " = ? ";
@@ -92,48 +120,21 @@ public class FastMath : MonoBehaviour
             answer = operand1 * operand2;
             Debug.Log(answer);
             // GameObject.Find("Answer 1").GetComponentInChildren<Text>().text = "hello";
+        
+            return (answer);
+        }
+        else if (operation == division)
+        {
+            operand1 = Mathf.FloorToInt(Random.value * 50);
+            operand2 = Random.Range(2, 10);
+            question = operand1.ToString() + "/" + operand2.ToString() + " = ? ";
+            questionDisplay.text = ("Question: " + question);
+            answer = operand1 / operand2;
+            // GameObject.Find("Answer 1").GetComponentInChildren<Text>().text = "hello";
 
 
             return (answer);
         }
-        // else if (rand_operator == 1 || rand_operator == 3 )
-        // {
-        //     operand1 = Mathf.FloorToInt(Random.value * 100);
-        //     operand2 = Mathf.FloorToInt(Random.value * 100);
-        //     question = operand1.ToString() + "-" + operand2.ToString() + " = ? ";
-        //     questionDisplay.text = ("Question: " + question);
-        //     answer = operand1 - operand2;
-        //     // GameObject.Find("Answer 1").GetComponentInChildren<Text>().text = "hello";
-
-
-        //     return (answer);
-        // }
-        // else if (rand_operator == 2)
-        // {
-        //     operand1 = Mathf.FloorToInt(Random.value * 50);
-        //     operand2 = Random.Range(2, 10);
-        //     question = operand1.ToString() + "*" + operand2.ToString() + " = ? ";
-        //     questionDisplay.text = ("Question: " + question);
-        //     answer = operand1 * operand2;
-        //     Debug.Log(answer);
-        //     // GameObject.Find("Answer 1").GetComponentInChildren<Text>().text = "hello";
-        // }
-
-
-        //     return (answer);
-        // }
-        // else if (rand_operator == 3)
-        // {
-        //     operand1 = Mathf.FloorToInt(Random.value * 50);
-        //     operand2 = Random.Range(2, 10);
-        //     question = operand1.ToString() + "/" + operand2.ToString() + " = ? ";
-        //     questionDisplay.text = ("Question: " + question);
-        //     answer = operand1 / operand2;
-        //     // GameObject.Find("Answer 1").GetComponentInChildren<Text>().text = "hello";
-
-
-        //     return (answer);
-        // }
         return 0;
     }
 

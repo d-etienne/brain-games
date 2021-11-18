@@ -128,7 +128,8 @@ public class memoryGame : MonoBehaviour
         if(levels[curLevel][inputIndx] != ans)
         {
             print("game over!");
-            StartCoroutine(UpdateDatabase());
+            StartCoroutine(UpdateMemoryScore());
+            StartCoroutine(UpdateMemoryGamesPlayed());
             turn = -1;
             yield break;
         }
@@ -162,13 +163,12 @@ public class memoryGame : MonoBehaviour
         yield break;
     }
 
-    IEnumerator UpdateDatabase()
+    IEnumerator UpdateMemoryScore()
     {
-        var DBChild = DBreference.Child("users");
-        var DBUsers = DBChild.Child(FirebaseManager.Singleton.User.UserId);
-        var Memory = DBUsers.Child("MemoryScore");
-        var DBTask = Memory.SetValueAsync(highScore);
-        
+
+        var DBTask = DBreference.Child("users").Child(FirebaseManager.Singleton.User.UserId).GetValueAsync();
+        string currCount = "";
+
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
 
         if (DBTask.Exception != null)
@@ -177,8 +177,48 @@ public class memoryGame : MonoBehaviour
         }
         else
         {
+            DataSnapshot snapshot = DBTask.Result;
+            currCount = snapshot.Child("MemoryScore").Value.ToString();
 
         }
 
+        int count = int.Parse(currCount);
+
+        if (highScore > count)
+        {
+            var Task = DBreference.Child("users").Child(FirebaseManager.Singleton.User.UserId).Child("MemoryScore").SetValueAsync(highScore);
+        }else
+        {
+            var Task = DBreference.Child("users").Child(FirebaseManager.Singleton.User.UserId).Child("MemoryScore").SetValueAsync(count);
+        }
+
+
     }
+        IEnumerator UpdateMemoryGamesPlayed()
+    {
+
+        var DBTask = DBreference.Child("users").Child(FirebaseManager.Singleton.User.UserId).GetValueAsync();
+        string currCount = "";
+
+        yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
+
+        if (DBTask.Exception != null)
+        {
+            Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
+        }
+        else
+        {
+            //Data has been retrieved
+            DataSnapshot snapshot = DBTask.Result;
+            currCount = snapshot.Child("MemoryGamesPlayed").Value.ToString();
+        }
+
+        int count = int.Parse(currCount);
+        var Task = DBreference.Child("users").Child(FirebaseManager.Singleton.User.UserId).Child("MemoryGamesPlayed").SetValueAsync(count + 1);
+
+
+    }
+
+
+
 }
