@@ -10,10 +10,10 @@ using Firebase.Database;
 
 public class memoryGame : MonoBehaviour
 {
-    int turn = 0;
-    int[][] levels = new int[50][];
-    int level = 1;  
-    int process = 1;
+    public int turn = 0;
+    public int[][] levels = new int[50][];
+    public int level = 1;  
+    public int process = 1;
     int gameStart = 1;
     int inputIndx = 0;
 
@@ -98,7 +98,7 @@ public class memoryGame : MonoBehaviour
         yield return new WaitForSeconds(x);
     }
 
-    IEnumerator probDisplay(int[] prob)
+    public IEnumerator probDisplay(int[] prob)
     {
         yield return new WaitForSeconds(0.5f);
         for (int i = 0; i < level; i++)
