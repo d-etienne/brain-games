@@ -22,8 +22,8 @@ public class userData : MonoBehaviour
     public TMP_InputField MemoryScoreField;
     public TMP_InputField MemoryGamesPlayedField;
     public TMP_InputField MemoryBadgesField;
-    //public TMP_InputField NumeracyScoreField;
-    //public TMP_InputField NumeracyGamesPlayedField;
+    public TMP_InputField NumeracyScoreField;
+    public TMP_InputField NumeracyGamesPlayedField;
     //public GameObject scoreElement;
     //public Transform scoreboardContent;
 
@@ -184,7 +184,9 @@ public class userData : MonoBehaviour
             //No data exists yet
             MemoryScoreField.text = "0";
             MemoryGamesPlayedField.text = "0";
-            MemoryBadgesField.text = "0";
+            NumeracyScoreField.text = "0";
+            NumeracyGamesPlayedField.text = "0";
+            //MemoryBadgesField.text = "0";
         }
         else
         {
@@ -193,7 +195,9 @@ public class userData : MonoBehaviour
 
             MemoryScoreField.text = snapshot.Child("MemoryScore").Value.ToString();
             MemoryGamesPlayedField.text = snapshot.Child("MemoryGamesPlayed").Value.ToString();
-            MemoryBadgesField.text = snapshot.Child("MemoryBadges").Value.ToString();
+            NumeracyScoreField.text = snapshot.Child("NumeracyScore").Value.ToString();
+            NumeracyGamesPlayedField.text = snapshot.Child("NumeracyGamesPlayed").Value.ToString();
+            //MemoryBadgesField.text = snapshot.Child("MemoryBadges").Value.ToString();
         }
     }
 

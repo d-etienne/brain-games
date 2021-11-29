@@ -194,7 +194,8 @@ public class memoryGame : MonoBehaviour
 
 
     }
-        IEnumerator UpdateMemoryGamesPlayed()
+
+    IEnumerator UpdateMemoryGamesPlayed()
     {
 
         var DBTask = DBreference.Child("users").Child(FirebaseManager.Singleton.User.UserId).GetValueAsync();

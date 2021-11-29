@@ -2,12 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using Firebase;
+using Firebase.Auth;
+using Firebase.Database;
 
-// This script utilizes tutorial code from: http://codesaying.com/create-a-math-game-for-kids-using-unity-scripting/
 
 public class FastMath : MonoBehaviour
 {
     public Text currScore, questionDisplay;
+    public DatabaseReference DBreference;
+    public DependencyStatus dependencyStatus;
+    public FirebaseUser User;
 
     bool valid = true;
 
@@ -19,6 +25,26 @@ public class FastMath : MonoBehaviour
     int question;
     List<int> answerChoices = new List<int>();
 
+
+    private void Awake()
+    {
+        FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task =>
+        {
+            dependencyStatus = task.Result;
+
+            if (dependencyStatus == DependencyStatus.Available)
+            {
+                DBreference = FirebaseDatabase.DefaultInstance.RootReference;
+
+
+            }
+            else
+            {
+                Debug.Log(" Couldnt resolve firebase dependencies" + dependencyStatus);
+
+            }
+        });
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -171,7 +197,6 @@ public class FastMath : MonoBehaviour
             }
 
 
-
             if(valid != true)
             {
                 Debug.Log("game over");
@@ -199,6 +224,8 @@ public class FastMath : MonoBehaviour
             Debug.Log(hit.collider.gameObject.GetComponentInChildren<Text>().text);
             Debug.Log(correctAnswer.ToString());
             valid = false;
+            StartCoroutine(UpdateNumeracyScore());
+            StartCoroutine(UpdateNumeracyGamesPlayed());
         }
 
         yield return new WaitForSeconds(100);
@@ -208,6 +235,63 @@ public class FastMath : MonoBehaviour
         question = questionGenerator();
         randomAnswerGenerator(question);
         yield break;
+
+    }
+
+    IEnumerator UpdateNumeracyScore()
+    {
+
+        var DBTask = DBreference.Child("users").Child(FirebaseManager.Singleton.User.UserId).GetValueAsync();
+        string currCount = "";
+
+        yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
+
+        if (DBTask.Exception != null)
+        {
+            Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
+        }
+        else
+        {
+            DataSnapshot snapshot = DBTask.Result;
+            currCount = snapshot.Child("NumeracyScore").Value.ToString();
+
+        }
+
+        int count = int.Parse(currCount);
+
+        if (score > count)
+        {
+            var Task = DBreference.Child("users").Child(FirebaseManager.Singleton.User.UserId).Child("NumeracyScore").SetValueAsync(score);
+        }else
+        {
+            var Task = DBreference.Child("users").Child(FirebaseManager.Singleton.User.UserId).Child("NumeracyScore").SetValueAsync(count);
+        }
+
+
+    }
+
+    IEnumerator UpdateNumeracyGamesPlayed()
+    {
+
+        var DBTask = DBreference.Child("users").Child(FirebaseManager.Singleton.User.UserId).GetValueAsync();
+        string currCount = "";
+
+        yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
+
+        if (DBTask.Exception != null)
+        {
+            Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
+        }
+        else
+        {
+            //Data has been retrieved
+            DataSnapshot snapshot = DBTask.Result;
+            currCount = snapshot.Child("NumeracyGamesPlayed").Value.ToString();
+        }
+
+        int count = int.Parse(currCount);
+        var Task = DBreference.Child("users").Child(FirebaseManager.Singleton.User.UserId).Child("NumeracyGamesPlayed").SetValueAsync(count + 1);
+
 
     }
 }

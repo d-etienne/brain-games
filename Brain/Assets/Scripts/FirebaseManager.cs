@@ -38,8 +38,9 @@ public class FirebaseManager : MonoBehaviour
     public TMP_InputField MemoryScoreField;
     public TMP_InputField MemoryGamesPlayedField;
     public TMP_InputField MemoryBadgesField;
-    //public TMP_InputField NumeracyScoreField;
-    //public TMP_InputField NumeracyGamesPlayedField;
+    
+    public TMP_InputField NumeracyScoreField;
+    public TMP_InputField NumeracyGamesPlayedField;
     //public GameObject scoreElement;
     //public Transform scoreboardContent;
 
@@ -145,7 +146,10 @@ public class FirebaseManager : MonoBehaviour
 
         StartCoroutine(UpdateMemoryScore(int.Parse(MemoryScoreField.text)));
         StartCoroutine(UpdateMemoryGamesPlayed(int.Parse(MemoryGamesPlayedField.text)));
-        StartCoroutine(UpdateMemoryBadges(int.Parse(MemoryBadgesField.text)));
+
+        StartCoroutine(UpdateNumeracyScore(int.Parse(NumeracyScoreField.text)));
+        StartCoroutine(UpdateNumeracyGamesPlayed(int.Parse(NumeracyGamesPlayedField.text)));
+        // StartCoroutine(UpdateMemoryBadges(int.Parse(MemoryBadgesField.text)));
 
     }
 
@@ -278,6 +282,13 @@ public class FirebaseManager : MonoBehaviour
                     }
                     else
                     {
+                        StartCoroutine(UpdateUsernameAuth(usernameRegisterField.text));
+                        StartCoroutine(UpdateUsernameDatabase(usernameRegisterField.text));
+                        StartCoroutine(UpdateMemoryScore(0));
+                        StartCoroutine(UpdateMemoryGamesPlayed(0));
+
+                        StartCoroutine(UpdateNumeracyScore(0));
+                        StartCoroutine(UpdateNumeracyGamesPlayed(0));
                         //Username is now set
                         //Now return to login screen
                         SceneLoader.instance.LoginScreen();
@@ -362,6 +373,40 @@ public class FirebaseManager : MonoBehaviour
         }
     }
 
+        private IEnumerator UpdateNumeracyScore(int memoryScore)
+    {
+        //Set the currently logged in user xp
+        var DBTask = DBreference.Child("users").Child(User.UserId).Child("NumeracyScore").SetValueAsync(memoryScore);
+
+        yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
+
+        if (DBTask.Exception != null)
+        {
+            Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
+        }
+        else
+        {
+            //Xp is now updated
+        }
+    }
+
+    private IEnumerator UpdateNumeracyGamesPlayed(int games_played)
+    {
+        //Set the currently logged in user kills
+        var DBTask = DBreference.Child("users").Child(User.UserId).Child("NumeracyGamesPlayed").SetValueAsync(games_played);
+
+        yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
+
+        if (DBTask.Exception != null)
+        {
+            Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
+        }
+        else
+        {
+            //Kills are now updated
+        }
+    }
+
     private IEnumerator UpdateMemoryBadges(int badges)
     {
         //Set the currently logged in user deaths
@@ -398,7 +443,9 @@ public class FirebaseManager : MonoBehaviour
             //No data exists yet
             MemoryScoreField.text = "0";
             MemoryGamesPlayedField.text = "0";
-            MemoryBadgesField.text = "0";
+            NumeracyScoreField.text = "0";
+            NumeracyGamesPlayedField.text = "0";
+            //MemoryBadgesField.text = "0";
         }
         else
         {
@@ -407,7 +454,9 @@ public class FirebaseManager : MonoBehaviour
 
             MemoryScoreField.text = snapshot.Child("MemoryScore").Value.ToString();
             MemoryGamesPlayedField.text = snapshot.Child("MemoryGamesPlayed").Value.ToString();
-            MemoryBadgesField.text = snapshot.Child("MemoryBadges").Value.ToString();
+            NumeracyScoreField.text = snapshot.Child("NumeracyScore").Value.ToString();
+            NumeracyGamesPlayedField.text = snapshot.Child("NumeracyGamesPlayed").Value.ToString();
+            // MemoryBadgesField.text = snapshot.Child("MemoryBadges").Value.ToString();
         }
     }
 
