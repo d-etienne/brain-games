@@ -22,6 +22,9 @@ public class memoryGame : MonoBehaviour
     public FirebaseUser User;
     public Text textElement, textElement1;
 
+    //public Text incorrectMessage;
+
+    public GameObject thing;
     int currScore = 0;
     int highScore = 0; //****get high score from DB****
 
@@ -30,6 +33,7 @@ public class memoryGame : MonoBehaviour
 
     private void Awake()
     {
+        thing.SetActive(false);
         FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task =>
         {
             dependencyStatus = task.Result;
@@ -130,6 +134,9 @@ public class memoryGame : MonoBehaviour
         if(levels[curLevel][inputIndx] != ans)
         {
             print("game over!");
+            //incorrectMessage.enabled = true;
+            thing.SetActive(true);
+            
             StartCoroutine(UpdateMemoryScore());
             StartCoroutine(UpdateMemoryGamesPlayed());
             turn = -1;

@@ -38,14 +38,21 @@ public class FirebaseManager : MonoBehaviour
     public TMP_InputField MemoryScoreField;
     public TMP_InputField MemoryGamesPlayedField;
     public TMP_InputField MemoryBadgesField;
-    
     public TMP_InputField NumeracyScoreField;
     public TMP_InputField NumeracyGamesPlayedField;
+
+    public TMP_Text username;
+    public TMP_Text memoryScore;
+    public TMP_Text memoryGamesPlayed;
+    public TMP_Text numeracyScore;
+    public TMP_Text NumeracyGamesPlayed;
     //public GameObject scoreElement;
     //public Transform scoreboardContent;
 
     public string emailToRemember;
     public string passwordToRemember;
+
+    public GameObject incorrectUser;
 
     //public string UserID;
 
@@ -71,6 +78,7 @@ public class FirebaseManager : MonoBehaviour
     {
 
         // THIS IS SINGLETTON STUFF AND STUFF DIRECTLY ABOVE
+        incorrectUser.SetActive(false);
         DontDestroyOnLoad(this.gameObject);
         Singleton = this;
 
@@ -189,6 +197,7 @@ public class FirebaseManager : MonoBehaviour
 
             }
             warningLoginText.text = message;
+            incorrectUser.SetActive(true);
 
         }
         else
@@ -203,7 +212,9 @@ public class FirebaseManager : MonoBehaviour
             yield return new WaitForSeconds(2);
 
             usernameField.text = User.DisplayName; 
+            username.text = User.DisplayName;
             
+            incorrectUser.SetActive(false);
             SceneLoader.instance.UserDataScreen();
             confirmLoginText.text = "";
             ClearLoginFeilds();
@@ -456,6 +467,11 @@ public class FirebaseManager : MonoBehaviour
             MemoryGamesPlayedField.text = snapshot.Child("MemoryGamesPlayed").Value.ToString();
             NumeracyScoreField.text = snapshot.Child("NumeracyScore").Value.ToString();
             NumeracyGamesPlayedField.text = snapshot.Child("NumeracyGamesPlayed").Value.ToString();
+
+            memoryScore.text = snapshot.Child("MemoryScore").Value.ToString();
+            memoryGamesPlayed.text = snapshot.Child("MemoryGamesPlayed").Value.ToString();
+            numeracyScore.text = snapshot.Child("NumeracyScore").Value.ToString();
+            NumeracyGamesPlayed.text = snapshot.Child("NumeracyGamesPlayed").Value.ToString();
             // MemoryBadgesField.text = snapshot.Child("MemoryBadges").Value.ToString();
         }
     }

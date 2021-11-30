@@ -17,6 +17,8 @@ public class FastMath : MonoBehaviour
 
     bool valid = true;
 
+    public GameObject incorrectMessage;
+
     int score = 0;
     int prevCorrectAnswerIndex;
     int correctAnswerIndex;
@@ -30,6 +32,7 @@ public class FastMath : MonoBehaviour
 
     private void Awake()
     {
+        incorrectMessage.SetActive(false);
         FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task =>
         {
             dependencyStatus = task.Result;
@@ -205,6 +208,7 @@ public class FastMath : MonoBehaviour
             if(valid != true)
             {
                 Debug.Log("game over");
+                incorrectMessage.SetActive(true);
                 //Application.Quit();
             }
         }
@@ -229,6 +233,7 @@ public class FastMath : MonoBehaviour
             Debug.Log(hit.collider.gameObject.GetComponentInChildren<Text>().text);
             Debug.Log(correctAnswer.ToString());
             valid = false;
+            incorrectMessage.SetActive(true);
             StartCoroutine(UpdateNumeracyScore());
             StartCoroutine(UpdateNumeracyGamesPlayed());
         }

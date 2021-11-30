@@ -24,6 +24,11 @@ public class userData : MonoBehaviour
     public TMP_InputField MemoryBadgesField;
     public TMP_InputField NumeracyScoreField;
     public TMP_InputField NumeracyGamesPlayedField;
+    public TMP_Text username;
+    public TMP_Text memoryScore;
+    public TMP_Text memoryGamesPlayed;
+    public TMP_Text numeracyScore;
+    public TMP_Text NumeracyGamesPlayed;
     //public GameObject scoreElement;
     //public Transform scoreboardContent;
 
@@ -151,6 +156,7 @@ public class userData : MonoBehaviour
             //confirmLoginText.text = "logged in";
 
             usernameField.text = User.DisplayName;
+            username.text = User.DisplayName;
 
             StartCoroutine(LoadUserData());
             yield return new WaitForSeconds(2);
@@ -197,6 +203,11 @@ public class userData : MonoBehaviour
             MemoryGamesPlayedField.text = snapshot.Child("MemoryGamesPlayed").Value.ToString();
             NumeracyScoreField.text = snapshot.Child("NumeracyScore").Value.ToString();
             NumeracyGamesPlayedField.text = snapshot.Child("NumeracyGamesPlayed").Value.ToString();
+
+            memoryScore.text = snapshot.Child("MemoryScore").Value.ToString();
+            memoryGamesPlayed.text = snapshot.Child("MemoryGamesPlayed").Value.ToString();
+            numeracyScore.text = snapshot.Child("NumeracyScore").Value.ToString();
+            NumeracyGamesPlayed.text = snapshot.Child("NumeracyGamesPlayed").Value.ToString();
             //MemoryBadgesField.text = snapshot.Child("MemoryBadges").Value.ToString();
         }
     }
