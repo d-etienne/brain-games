@@ -47,10 +47,12 @@ public class userData : MonoBehaviour
     public TMP_InputField passwordRegisterVerifyField;
     public TMP_Text warningRegisterText;
 
+    public GameObject incorrectUser;
 
 
     private void Awake()
     {
+        incorrectUser.SetActive(false);
         FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task =>
         {
             dependencyStatus = task.Result;
@@ -145,6 +147,7 @@ public class userData : MonoBehaviour
 
             }
             warningLoginText.text = message;
+            incorrectUser.SetActive(true);
 
         }
         else
@@ -162,7 +165,7 @@ public class userData : MonoBehaviour
             yield return new WaitForSeconds(2);
 
 
-
+            incorrectUser.SetActive(false);
             SceneLoader.instance.UserDataScreen();
             confirmLoginText.text = "";
             ClearLoginFeilds();
