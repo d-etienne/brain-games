@@ -25,6 +25,8 @@ public class memoryGame : MonoBehaviour
     int currScore = 0;
     int highScore = 0; //****get high score from DB****
 
+    int levelMax = 49;
+
 
     private void Awake()
     {
@@ -82,7 +84,7 @@ public class memoryGame : MonoBehaviour
         }
         if (turn == 0 && process == 1)     //problem display
         {
-            if (level == 49)
+            if (level == levelMax)
             {
                 Application.Quit();
                 return;
@@ -107,7 +109,7 @@ public class memoryGame : MonoBehaviour
             Debug.Log(prob[i]);
             GameObject someGameObject = GameObject.Find(prob[i].ToString());
             yield return new WaitForSeconds(0.2f);
-            someGameObject.GetComponent<Renderer>().material.color = Color.green;
+            someGameObject.GetComponent<Renderer>().material.color = Color.yellow;
             yield return new WaitForSeconds(0.25f);
             someGameObject.GetComponent<Renderer>().material.color = Color.white;
         }
@@ -119,7 +121,7 @@ public class memoryGame : MonoBehaviour
 
     IEnumerator userClick(RaycastHit2D hit)
     {
-        hit.collider.gameObject.GetComponent<Renderer>().material.color = Color.red;
+        hit.collider.gameObject.GetComponent<Renderer>().material.color = Color.green;
         yield return new WaitForSeconds(0.2f);
         hit.collider.gameObject.GetComponent<Renderer>().material.color = Color.white;
 
@@ -151,7 +153,7 @@ public class memoryGame : MonoBehaviour
 
     IEnumerator initGameProblem()
     {
-        for (int i = 1; i < 50; i++)
+        for (int i = 1; i < levelMax+1; i++)
         {
             int[] problem = new int[i];
             for (int z = 0; z < i; z++)

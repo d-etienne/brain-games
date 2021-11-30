@@ -22,6 +22,8 @@ public class FastMath : MonoBehaviour
     int correctAnswerIndex;
     int wrongAnswer;
 
+    int numOfAnswers = 3;
+
     int question;
     List<int> answerChoices = new List<int>();
 
@@ -59,7 +61,7 @@ public class FastMath : MonoBehaviour
         prevCorrectAnswerIndex = correctAnswerIndex;
 
         correctAnswerIndex = Mathf.FloorToInt(Random.value * 3);
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < numOfAnswers; i++)
         {
             if (i == correctAnswerIndex)
             { //If this is the index for the correct answer, put correct answer here
@@ -85,7 +87,7 @@ public class FastMath : MonoBehaviour
             Debug.Log(ans);
         }
      
-        for (int i = 0; i <3; i++){
+        for (int i = 0; i <numOfAnswers; i++){
             GameObject.Find("Answer " + (i+1).ToString()).GetComponentInChildren<Text>().text = answerChoices[i].ToString();
             GameObject.Find("Answer " + (i+1).ToString() + " Click").GetComponentInChildren<Text>().text = answerChoices[i].ToString();
 
@@ -113,10 +115,13 @@ public class FastMath : MonoBehaviour
         int multiplication = 2;
         int division = 3;
 
+        int wholeNumberMultiplier = 100;
+
+
         if ( operation == addition ) // addition
         {
-            operand1 = Mathf.FloorToInt(Random.value * 100);
-            operand2 = Mathf.FloorToInt(Random.value * 100);
+            operand1 = Mathf.FloorToInt(Random.value * wholeNumberMultiplier);
+            operand2 = Mathf.FloorToInt(Random.value * wholeNumberMultiplier);
             question = operand1.ToString() + "+" + operand2.ToString() + " = ? ";
             questionDisplay.text = ("Question: " + question);
             answer = operand1 + operand2;
@@ -127,8 +132,8 @@ public class FastMath : MonoBehaviour
         }
         else if (operation == subtraction  )
         {
-            operand1 = Mathf.FloorToInt(Random.value * 100);
-            operand2 = Mathf.FloorToInt(Random.value * 100);
+            operand1 = Mathf.FloorToInt(Random.value * wholeNumberMultiplier);
+            operand2 = Mathf.FloorToInt(Random.value * wholeNumberMultiplier);
             question = operand1.ToString() + "-" + operand2.ToString() + " = ? ";
             questionDisplay.text = ("Question: " + question);
             answer = operand1 - operand2;
@@ -139,7 +144,7 @@ public class FastMath : MonoBehaviour
         }
         else if (operation == multiplication)
         {
-            operand1 = Mathf.FloorToInt(Random.value * 50);
+            operand1 = Mathf.FloorToInt(Random.value * (wholeNumberMultiplier/2));
             operand2 = Random.Range(2, 10);
             question = operand1.ToString() + "*" + operand2.ToString() + " = ? ";
             questionDisplay.text = ("Question: " + question);
@@ -151,7 +156,7 @@ public class FastMath : MonoBehaviour
         }
         else if (operation == division)
         {
-            operand = Mathf.FloorToInt(Random.value * 50);
+            operand = Mathf.FloorToInt(Random.value * (wholeNumberMultiplier/2));
             operand2 = Random.Range(2, 10);
             operand1 = operand * operand2;
             question = operand1.ToString() + "/" + operand2.ToString() + " = ? ";
