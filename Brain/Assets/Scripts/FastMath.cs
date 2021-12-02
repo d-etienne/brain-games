@@ -29,6 +29,11 @@ public class FastMath : MonoBehaviour
     int question;
     List<int> answerChoices = new List<int>();
 
+    public Text timer;
+    float  currTime = 10f;
+    float timeCounter = 0f;
+
+
 
     private void Awake()
     {
@@ -53,6 +58,7 @@ public class FastMath : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        timeCounter = currTime;
         question = questionGenerator();
         randomAnswerGenerator(question);
         prevCorrectAnswerIndex = correctAnswerIndex;
@@ -179,6 +185,13 @@ public class FastMath : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        while (timeCounter != 0)
+        {
+            timeCounter -= 1 * Time.deltaTime;
+            timer.text = timeCounter.ToString("0");
+
+        }
+
         currScore.text = ("Score: " + score.ToString());
         //Debug.Log("Correct Answer = " + answerChoices[correctAnswerIndex].ToString());
         if (valid)
