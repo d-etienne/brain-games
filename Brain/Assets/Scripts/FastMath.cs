@@ -183,6 +183,7 @@ public class FastMath : MonoBehaviour
 
     //}
     // Update is called once per frame
+    //hello
     void Update()
     {
         while (timeCounter != 0)
