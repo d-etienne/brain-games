@@ -326,7 +326,7 @@ public class FirebaseManager : MonoBehaviour
         }
         else
         {
-            // auth user is updated
+            // is updated
         }
 
     }
@@ -345,7 +345,7 @@ public class FirebaseManager : MonoBehaviour
         }
         else
         {
-            // databases user is updated
+            // is updated
         }
 
     }
@@ -363,7 +363,7 @@ public class FirebaseManager : MonoBehaviour
         }
         else
         {
-            //Xp is now updated
+            // is updated
         }
     }
 
@@ -380,7 +380,7 @@ public class FirebaseManager : MonoBehaviour
         }
         else
         {
-            //Kills are now updated
+            // is updated
         }
     }
 
@@ -397,7 +397,7 @@ public class FirebaseManager : MonoBehaviour
         }
         else
         {
-            //Xp is now updated
+            // is updated
         }
     }
 
@@ -414,7 +414,7 @@ public class FirebaseManager : MonoBehaviour
         }
         else
         {
-            //Kills are now updated
+            // is updated
         }
     }
 
@@ -431,7 +431,7 @@ public class FirebaseManager : MonoBehaviour
         }
         else
         {
-            //Deaths are now updated
+            // is updated
         }
     }
 

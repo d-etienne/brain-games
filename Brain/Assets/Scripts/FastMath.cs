@@ -79,8 +79,8 @@ public class FastMath : MonoBehaviour
             else
             {
                 int wrongAnswer = -1;
-                int randOpt = Mathf.FloorToInt(Random.value * 2); //Should we add or subtract the random number
-                int randBase = Mathf.FloorToInt(Random.value * 5) + 1; //Plus 1 so it doesn't equal zero. Change the 5 to modify how much the generated answers will differ from the real answer
+                int randOpt = Mathf.FloorToInt(Random.value * 2); 
+                int randBase = Mathf.FloorToInt(Random.value * 5) + 1; 
                 if (randOpt == 0)
                 {
                     wrongAnswer = answer + randBase;
@@ -101,15 +101,7 @@ public class FastMath : MonoBehaviour
             GameObject.Find("Answer " + (i+1).ToString() + " Click").GetComponentInChildren<Text>().text = answerChoices[i].ToString();
 
         }
-        // GameObject.Find("Answer 1").GetComponentInChildren<Text>().text = answerChoices[0].ToString();
-        // GameObject.Find("Answer 2").GetComponentInChildren<Text>().text = answerChoices[1].ToString();
-        // GameObject.Find("Answer 3").GetComponentInChildren<Text>().text = answerChoices[2].ToString();
 
-        // GameObject.Find("Answer 1 Click").GetComponentInChildren<Text>().text = answerChoices[0].ToString();
-        // GameObject.Find("Answer 2 Click").GetComponentInChildren<Text>().text = answerChoices[1].ToString();
-        // GameObject.Find("Answer 3 Click").GetComponentInChildren<Text>().text = answerChoices[2].ToString();
-
-        
 
     }
 
@@ -134,7 +126,7 @@ public class FastMath : MonoBehaviour
             question = operand1.ToString() + "+" + operand2.ToString() + " = ? ";
             questionDisplay.text = ("Question: " + question);
             answer = operand1 + operand2;
-            // GameObject.Find("Answer 1").GetComponentInChildren<Text>().text = "hello";
+            
 
 
             return (answer);
@@ -146,7 +138,7 @@ public class FastMath : MonoBehaviour
             question = operand1.ToString() + "-" + operand2.ToString() + " = ? ";
             questionDisplay.text = ("Question: " + question);
             answer = operand1 - operand2;
-            // GameObject.Find("Answer 1").GetComponentInChildren<Text>().text = "hello";
+            
 
 
             return (answer);
@@ -159,7 +151,7 @@ public class FastMath : MonoBehaviour
             questionDisplay.text = ("Question: " + question);
             answer = operand1 * operand2;
             Debug.Log(answer);
-            // GameObject.Find("Answer 1").GetComponentInChildren<Text>().text = "hello";
+            
         
             return (answer);
         }
@@ -171,7 +163,7 @@ public class FastMath : MonoBehaviour
             question = operand1.ToString() + "/" + operand2.ToString() + " = ? ";
             questionDisplay.text = ("Question: " + question);
             answer = operand1 / operand2;
-            // GameObject.Find("Answer 1").GetComponentInChildren<Text>().text = "hello";
+            
 
 
             return (answer);
@@ -179,12 +171,7 @@ public class FastMath : MonoBehaviour
         return 0;
     }
 
-    //IEnumerator GenerateQuestion(){
 
-    //}
-    // Update is called once per frame
-    //hello
-    // this is the presentation
     void Update()
     {
         while (timeCounter != 0)
@@ -195,7 +182,7 @@ public class FastMath : MonoBehaviour
         }
 
         currScore.text = ("Score: " + score.ToString());
-        //Debug.Log("Correct Answer = " + answerChoices[correctAnswerIndex].ToString());
+        
         if (valid)
         {
             if (Input.GetMouseButtonDown(0))
