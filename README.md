@@ -97,8 +97,8 @@ The mini games are classified according to cognitive skill:
     - Match the Cards: the player is presented with an even amount of cards that are face down. 
     Each round, the player is allowed to flip a pair of cards up to find a match. If the pair of cards do not match, they are flipped back to their face-down position. If the pair of cards match, they remain face-up. The player continues to select pairs of cards until all of the matches are found. The player must complete this task within a certain allotment of time.
 
-1. **Language**: enhances the user's fluency in and articulation of the English language.
-    - Word Permutations: the player is presented with a set of letters. Within a certain allotment of time, the player must construct as many word permutations as they can, using the letters provided.
+<!-- 1. **Language**: enhances the user's fluency in and articulation of the English language.
+    - Word Permutations: the player is presented with a set of letters. Within a certain allotment of time, the player must construct as many word permutations as they can, using the letters provided. -->
 
 <!-- 1. **Perception**: enhances the user's ability to process information quicker and improves visual feedback reflexes.
     - Spot the Difference: the player is presented with two images. The image on the right is a manipulation of the image to the left. Within a certain allotment of time, the player must use the original image to the left to find the modifications in the image to the right. -->
@@ -113,25 +113,25 @@ The mini games are classified according to cognitive skill:
 
 1. The user can make a new account.
 
-1. The user can delete their account.
+<!-- 1. The user can delete their account.-->
 
 1. The user can select a game category.
 
-1. The user can select their current level or any level that they previously completed.
+<!-- 1. The user can select their current level or any level that they previously completed.-->
 
 1. The user can start a new mini-game.
 
 1. The user can exit the current mini-game.
 
 1. The user can view their current mini-game progress as they play.
-     - Time remaining
+     <!-- - Time remaining-->
      - Current score
      - High score
 
-1. The user can earn badges.
+<!-- 1. The user can earn badges.-->
 
-1. The user can view their progress meter after each mini-game completion.
-    - Displays the percentage of mini-game badges earned out of total mini-game badges for that category
+<!-- 1. The user can view their progress meter after each mini-game completion.
+    - Displays the percentage of mini-game badges earned out of total mini-game badges for that category-->
 
 1. The user can opt-in to (standard) or opt-out of appearing on a public level leaderboard.
 
@@ -143,7 +143,7 @@ The mini games are classified according to cognitive skill:
         - Level names: Novice, [...], Intermediate, [...], Master
         - Level names account for a certain domain of levels
 
-    - General game badges
+   <!--  - General game badges
         - Played a certain amount of mini-games within a category
         - Played a certain amount of mini-games over all categories
         - Earned all badges within a specific category
@@ -154,7 +154,7 @@ The mini games are classified according to cognitive skill:
         - Word Permutations: found a secret word
         - Match the Cards: found an easter egg matching card pair
         - Fast Math: answered a certain amount of questions within the allotted time
-        - General: finished a mini-game before timer ended
+        - General: finished a mini-game before timer ended -->
 
     - High score per game category (max of all mini-game high scores)
         - High score per mini-game
