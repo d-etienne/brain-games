@@ -139,7 +139,7 @@ The mini games are classified according to cognitive skill:
     
     - Level and level name
         - Level is based on the total amount of points earned
-        - Each level increment requires a different amount of points
+        <!-- - Each level increment requires a different amount of points -->
         - Level names: Novice, [...], Intermediate, [...], Master
         - Level names account for a certain domain of levels
 
