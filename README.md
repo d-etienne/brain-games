@@ -168,3 +168,9 @@ The mini games are classified according to cognitive skill:
 
 1.  We will use Firebase Database REST API.
 
+
+## Future Additions
+1. Add in the plugin for creating automated documentation
+    - Using the unity plugin Doxygen
+    - Modifying the comments to make sure that all functions have the proper comment formats
+
